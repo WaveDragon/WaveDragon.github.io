@@ -79,11 +79,11 @@ theme_mode:   # [light|dark]
 #
 # e.g. 'https://cdn.com'
 # img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
-img_cdn: 'https://github.com/WaveDragon/WaveDragon.github.io/master'
+img_cdn: 'https://github.com/WaveDragon/test/main'
 
 # the avatar on sidebar, support local or CORS resources
 # avatar: '/commons/avatar.jpg'
-avatar: 'JinMao20221113222739.jpg'
+avatar: '/JinMao20221113222739.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true

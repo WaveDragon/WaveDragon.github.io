@@ -79,7 +79,7 @@ theme_mode:   # [light|dark]
 #
 # e.g. 'https://cdn.com'
 # img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
-img_cdn: 'https://github.com/WaveDragon/test/main'
+img_cdn: 'https://raw.githubusercontent.com/WaveDragon/test/main'
 
 # the avatar on sidebar, support local or CORS resources
 # avatar: '/commons/avatar.jpg'

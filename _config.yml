@@ -83,7 +83,7 @@ img_cdn: 'https://github.com/WaveDragon/WaveDragon.github.io/master'
 
 # the avatar on sidebar, support local or CORS resources
 # avatar: '/commons/avatar.jpg'
-avatar: '/JinMao20221113222739.jpg'
+avatar: 'JinMao20221113222739.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true

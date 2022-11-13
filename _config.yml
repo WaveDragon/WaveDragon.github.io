@@ -21,7 +21,7 @@ timezone: Asia/Shanghai
 
 title: WaveDragon                         # the main title
 
-tagline: This is my own blog😊   # it will display as the sub-title
+tagline: 😊   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
@@ -33,7 +33,7 @@ github:
   username: WaveDragon              # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: elonmusk            # change to your twitter username
 
 social:
   # Change to your full name.
@@ -78,10 +78,12 @@ theme_mode:   # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
+# img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
+img_cdn: 'https://github.com/WaveDragon/WaveDragon.github.io/master'
 
 # the avatar on sidebar, support local or CORS resources
-avatar: '/commons/avatar.jpg'
+# avatar: '/commons/avatar.jpg'
+avatar: '/JinMao20221113222739.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: 数据结构 邓俊辉No1
+title: Algorithms-DengNo1
 author: WaveDragon
 date: 2022-11-13 23:11:00 +0800
 categories: [Blogging, Structures and Algorithms]

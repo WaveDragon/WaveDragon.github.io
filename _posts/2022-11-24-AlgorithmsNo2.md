@@ -24,7 +24,6 @@ mermaid: true
  ### 2.2.3 vector模板类
 
 ```cpp
-
 0001 using Rank = int; //秩
 0002 #define DEFAULT_CAPACITY  3 //默认的初始容量（实际应用中可设置为更大）
 0003 
@@ -80,8 +79,9 @@ mermaid: true
 0053    void traverse ( void (* ) ( T& ) ); //遍历（使用函数指针，只读或局部性修改）
 0054    template <typename VST> void traverse ( VST& ); //遍历（使用函数对象，可全局性修改）
 0055 }; //Vector
-
 ```
+
+
 ## 2.3 构造与析构
 向量中秩为r的元素，对应内部数组中的_elem[r]，其物理地址为_elem + r
 

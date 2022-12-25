@@ -120,3 +120,5 @@ template <typename T> void Vector<T>:unsort(Rank lo,Rank hi){
 ### 遍历
 
 ## 2.6 有序向量
+
+若向量不仅按线性次序存放，而且其数值大小也按次序单调分布，则成为有序向量。

@@ -122,3 +122,198 @@ template <typename T> void Vector<T>:unsort(Rank lo,Rank hi){
 ## 2.6 有序向量
 
 若向量不仅按线性次序存放，而且其数值大小也按次序单调分布，则成为有序向量。
+
+### 唯一化
+```cpp
+template <typename T> int Vector<T>::uniquify()
+{
+    Rank i = 0,j =  0;
+    while(++j < size)
+    {
+        if (_elem[i]  !=  _elem[j])
+            _elem[++i]  =  _elem[j];
+    }
+    _size = ++i;
+    shrink();
+    return j-i;
+}
+```
+复杂度为O(n)
+
+### 2.6.5 二分查找
+循秩访问加上有序性，我们可以减而治之，来运用于有序向量查找。
+<font color = Salmon size = 6>版本A</font>
+
+```cpp
+template <typename T> static Rank binSearch(T* A, T  const& e, Rank lo,Rank hi)
+{
+    while (lo < hi)
+        {
+        Rank mi = (lo + hi) >> 1;
+        if (e < A[mi])
+            hi = mi;
+        else if( A[mi] < e)
+            lo = mi+1;
+        else 
+            return mi;
+        }
+    return -1;//查找失败    
+}//有多个命中元素时，不能保证返回秩最大者；查找失败时，简单返回-1，而不能指示位置
+```
+
+不足，最短和最长分支对应的查找长度相差两倍。
+
+### 2.6.6 Fibonacci查找
+其一，调整前后区域的宽度，适当地加长(缩短)前后子向量
+其二，统一沿两个方向深入所需执行的比较次数，比如都统一为1次
+
+#### 黄金分割
+实现Fibonacci查找算法
+```cpp
+#include "..\fibonacci\Fib.h"//引入Fib数列类
+
+template <typename T> static Rank fibSearch(T* A, T const& e, Rank lo, Rank hi)
+{
+    Fib fib(hi - lo);//创建Fib数列
+    while(lo < hi)
+    {
+        while (hi - lo < ifb.get())
+            fib.prev();//通过向前顺序查找 
+        Rank mi = lo + fib.get() - 1;//确定形如Fib(k) - 1 的轴点；
+        if (e < A[mi])
+            hi = mi;
+        else if( A[mi] < e)
+            lo = mi+1;
+        else 
+            return mi;
+    }
+    return -1;
+}
+
+```
+
+### 2.6.7 二分查找
+<font color = Salmon size = 6 >版本B</font>
+在每个切分点 仅做一次元素比较
+
+```cpp
+template<tpyename T> static Rank binSearch(T* A,const& e, Rank lo, Rank hi)
+{
+    while( 1 < hi-lo )
+    {
+        Rank mi = (lo+hi ) >> 1;
+        (e < A[mi]) ? hi = mi : lo = mi;
+    }
+    return (e == A[lo] ) ? lo : -1;
+
+}
+```
+
+<font color = Salmon size = 6 >版本C</font>
+
+```cpp
+template<tpyename T> static Rank binSearch(T* A,const& e, Rank lo, Rank hi)
+{
+    while( lo < hi )
+    {
+        Rank mi = (lo+hi ) >> 1;
+        (e < A[mi]) ? hi = mi : lo = mi+1;
+    }
+    return --lo;//循环结束时，lo为大于e的最小秩，
+
+}//有多个命中元素时，总能保证返回秩最大者，失败时，能够返回失败的位置。
+```
+C中的循环体，具有以下不变性。
+<table><tr><td bgcolor=DarkSeaGreen>
+<font color = #000000 size =4 >
+A[0, lo] 中的元素皆不大于e；A[hi,n) 中的元素皆大于e；
+</font>
+</td></tr></table>
+
+### 比较树
+
+基于比较式算法，称为CBA式算法
+
+
+## 2.8 排序器
+
+### 2.8.1 统一入口
+
+```cpp
+template <typename T> void Vector<T>::sort (Rank lo,Rank hi)
+{
+    switch (rand() % 5)
+    {
+        case 1: bubbleSort();break;//起泡排序；
+        case 2: selectSort();break;//选择排序；
+        case 3: mergeSort();break;//归并排序；
+        case 4: heapSort();break;//堆排序；
+        default: quickSort();break;//快速排序；
+    }
+}
+```
+<font color = Salmon size =4 >
+单趟排序
+</font>
+
+```cpp
+template <typename T> book Vector<T>:: bubble(Rank lo,Rank hi)
+{
+    bool sorted = true;
+    while (++lo < hi)
+        if (_elem[lo-1] > _elem[lo])//如果逆序，则
+            {
+            sorted = false;
+            swap(_elem[lo-1] , _elem[lo])//交换局部有序
+            }
+}
+```
+
+```cpp
+void Vector<T>::bubbleSort(Rank lo, Rank hi)
+{
+    while(!bubble(lo,hi--));//逐趟扫描交换，直至全序。
+}
+```
+
+
+### 2.8.3 归并排序(mergesort)
+在最坏情况仍有O(n**log**n)
+
+归并排序可以理解为通过反复调用**二路归并**算法实现
+所谓二路归并，就是将两个有序序列合并成一个有序序列
+
+#### 分治策略
+```cpp
+template <typename  T>
+void Vector<T>::mergeSort(Rank lo, Rank hi)
+{
+    if (hi - lo < 2) return;//单元素区间有序，否则……
+    int mi = (lo + hi) >> 1;//以中点为界
+    mergeSort(lo,mi);
+    mergeSort(mi,hi);
+    merge(lo,mi,hi);//分别对前后半段排序然后归并
+
+}
+```
+
+归并排序是否可实现，关键在于二路归并算法。
+
+
+![复杂度层次](https://user-images.githubusercontent.com/78013131/209563002-4c27970c-1562-4928-aa07-490511c676ae.png)
+针对有序向量结构，二路归并算法 一种实现：
+
+```cpp
+template <typename T> //有序向量（区间）的归并
+0002 void Vector<T>::merge ( Rank lo, Rank mi, Rank hi ) { //[lo, mi)和[mi, hi)各自有序，lo < mi < hi
+0003    Rank i = 0; T* A = _elem + lo; //合并后的有序向量A[0, hi - lo) = _elem[lo, hi)，就地
+0004    Rank j = 0, lb = mi - lo; T* B = new T[lb]; //前子向量B[0, lb) <-- _elem[lo, mi)
+0005    for ( Rank i = 0; i < lb; i++ ) B[i] = A[i]; //复制自A的前缀
+0006    Rank k = 0, lc = hi - mi; T* C = _elem + mi; //后子向量C[0, lc) = _elem[mi, hi)，就地
+0007    while ( ( j < lb ) && ( k < lc ) ) //反复地比较B、C的首元素
+0008       A[i++] = ( B[j] <= C[k] ) ? B[j++] : C[k++]; //将更小者归入A中
+0009    while ( j < lb ) //若C先耗尽，则
+0010       A[i++] = B[j++]; //将B残余的后缀归入A中——若B先耗尽呢？
+0011    delete [] B; //释放临时空间：mergeSort()过程中，如何避免此类反复的new/delete？
+0012 }
+```

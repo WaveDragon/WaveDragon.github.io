@@ -75,7 +75,9 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
     _size = 0; //记录规模
  }
  ```
+ 
  ### 3.3.3 由秩到位置的转换
+
  重载操作符[]，提供转换接口
 
  ```cpp
@@ -87,8 +89,10 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
  ```
 
+
  ### 3.3.4 查找
- 
+
+
  ```cpp
  template <typename T> //在无序列表内节点p（可能是trailer）的n个（真）前驱中，找到等于e的最后者
  ListNodePosi<T> List<T>::find ( T const& e, int n, ListNodePosi<T> p ) const {
@@ -98,7 +102,9 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  } //失败时，返回NULL
  ```
 
+
  ### 3.3.5 插入
+
 
  ```cpp
  template <typename T> ListNodePosi<T> List<T>::insertAsFirst ( T const& e )

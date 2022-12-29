@@ -225,7 +225,7 @@ template<tpyename T> static Rank binSearch(T* A,const& e, Rank lo, Rank hi)
 ```
 C中的循环体，具有以下不变性。
 <table><tr><td bgcolor=DarkSeaGreen>
-<font color = #000000 size =4 >
+<font color = black size =4 >
 A[0, lo] 中的元素皆不大于e；A[hi,n) 中的元素皆大于e；
 </font>
 </td></tr></table>

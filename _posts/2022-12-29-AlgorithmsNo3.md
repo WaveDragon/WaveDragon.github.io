@@ -61,10 +61,10 @@ template <typename T> struct ListNode { //列表节点模板类（以双向链�
 
 
 ## 3.3 列表
-#### 3.3.1 头尾节点
+### 3.3.1 头尾节点
 哨兵节点
 
-#### 3.3.2 默认构造方法
+### 3.3.2 默认构造方法
 
 ```cpp
 template <typename T> void List<T>::init() { //列表初始化，在创建列表对象时统一调用
@@ -76,7 +76,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
  ```
  
-#### 3.3.3 由秩到位置的转换
+### 3.3.3 由秩到位置的转换
 
  <font color = salmon size = 5>重载操作符[ ]，提供转换接口</font>
 
@@ -90,7 +90,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  ```
 
 
- #### 3.3.4 查找
+ ### 3.3.4 查找
  <font color = salmon size = 5>实现</font>
 
  ```cpp
@@ -103,7 +103,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  ```
 
 
- #### 3.3.5 插入
+ ### 3.3.5 插入
  <font color = salmon size = 5>实现</font>
 
  ```cpp
@@ -141,7 +141,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
 ```
 
-#### 3.3.6 基于复制的构造
+### 3.3.6 基于复制的构造
 
 <font color = salmon size = 6>copyNodes() </font>
 
@@ -153,7 +153,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
 ```
 
-#### 3.3.7 删除
+### 3.3.7 删除
 
 ```cpp
 template <typename T> T List<T>:: remove(ListNodePPosi(T) p)
@@ -167,7 +167,7 @@ template <typename T> T List<T>:: remove(ListNodePPosi(T) p)
 }
 ```
 
-#### 3.3.8 析构
+### 3.3.8 析构
 释放资源，清除节点
 
 ```cpp
@@ -179,7 +179,7 @@ template <typename T> List<T>::~List()
    }
 ```
 
-#### 3.3.9 唯一化
+### 3.3.9 唯一化
 
 ```cpp
  template <typename T> int List<T>::deduplicate() {
@@ -190,4 +190,22 @@ template <typename T> List<T>::~List()
        else r++; //r为无重前缀的长度
     return oldSize - _size; //删除元素总数
  }
-```
+ ```
+总体执行时间为 $ O(n^2) $
+
+### 3.3.10 遍历
+
+<font color = salmon size = 5>实现</font>
+
+```cpp
+ template <typename T> void List<T>::traverse ( void ( *visit ) ( T& ) ) //借助函数指针机制遍历
+ {  for ( ListNodePosi<T> p = header->succ; p != trailer; p = p->succ ) visit ( p->data );  }
+ 
+ template <typename T> template <typename VST> //元素类型、操作器
+ void List<T>::traverse ( VST& visit ) //借助函数对象机制遍历
+ {  for ( ListNodePosi<T> p = header->succ; p != trailer; p = p->succ ) visit ( p->data );  }
+ ```
+
+ ## 3.4 有序列表
+
+ ### 3.4.1 唯一化

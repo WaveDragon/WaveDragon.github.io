@@ -76,9 +76,9 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
  ```
  
- ### 3.3.3 由秩到位置的转换
+### 3.3.3 由秩到位置的转换
 
- 重载操作符[]，提供转换接口
+ <font color = salmon size = 5>重载操作符[ ]，提供转换接口</font>
 
  ```cpp
  template <typename T> //重载下标操作符，以通过秩直接访问列表节点（虽方便，效率低，需慎用）
@@ -91,7 +91,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
 
 
  ### 3.3.4 查找
-
+ <font color = salmon size = 5>实现</font>
 
  ```cpp
  template <typename T> //在无序列表内节点p（可能是trailer）的n个（真）前驱中，找到等于e的最后者
@@ -104,7 +104,7 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
 
 
  ### 3.3.5 插入
-
+ <font color = salmon size = 5>实现</font>
 
  ```cpp
  template <typename T> ListNodePosi<T> List<T>::insertAsFirst ( T const& e )
@@ -153,3 +153,30 @@ template <typename T> void List<T>::init() { //列表初始化，在创建列表
  }
 ```
 
+### 3.3.7 删除
+
+```cpp
+template <typename T> T List<T>:: remove(ListNodePPosi(T) p)
+{
+   T e = p-data;//备份待删除的节点数值
+   p->pred->succ= p->succ;
+   p->succ->pred = p->pred;//
+   delete p;
+   _size--;
+   return e;//返回备份的数值
+}
+```
+
+### 3.3.8 析构
+释放资源，清除节点
+
+```cpp
+template <typename T> List<T>::~List()
+{
+   clear();
+   delete header;
+   delete trailer;
+   }
+```
+
+### 3.3.9 唯一化

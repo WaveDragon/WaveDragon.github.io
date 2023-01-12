@@ -69,7 +69,7 @@ void bubblesort1A(int A[], int n)
 ### 1.3.5 指数O(2^n)
 ### 1.3.6 复杂度层次
 
-![复杂度层次](https://user-images.githubusercontent.com/78013131/202640816-b4dc11b8-f039-4ffd-a911-69bbb6411e2b.jpg){: width="972" height="589" }
+![复杂度层次](https://user-images.githubusercontent.com/78013131/202640816-b4dc11b8-f039-4ffd-a911-69bbb6411e2b.jpg){width="972" height="589" }
 <br>
 
   

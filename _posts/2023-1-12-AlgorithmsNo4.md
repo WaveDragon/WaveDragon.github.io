@@ -1,7 +1,7 @@
 ---
 title: Algorithms-DengNo4
 author: WaveDragon
-date: 2022-01-12 11:11:00 +0800
+date: 2023-01-12 11:11:00 +0800
 categories: [Blogging, Structures and Algorithms]
 tags: [Study]
 math: true

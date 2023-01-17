@@ -179,3 +179,46 @@ void travPre_R(BinNodePosi(T) x, VST &visit)
 
 #### 后序遍历
 
+![图05-36.后序遍历过程也可划分为模式雷同的若干段](https://user-images.githubusercontent.com/78013131/212520165-2b4b831a-7c45-4453-a66f-615e7bd4eb18.png)
+
+[版本1](https://dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_travpostorder_i.h.htm)
+
+
+### 5.4.5 层次遍历
+
+算法实现
+
+```cpp
+template <typename T>
+template <typename VST> // 元素类型、操作器
+void BinNode<T>::travLevel(VST &visit)
+{                            // 二叉树局次遍历算法
+    Queue<BinNodePosi(T)> Q; // 辅助队列
+    Q.enqueue(this);         // 根节点入队
+    while (!Q.empty())
+    { // 在队列再次变空之前，反复迭代
+        BinNodePosi(T) x = Q.dequeue();
+        visit(x->data); // 取出队首节点并访问之
+        if (HasLChild(*x))
+            Q.enqueue(x->lChild); // 左孩子入队
+        if (HasRChild(*x))
+            Q.enqueue(x->rChild); // 右孩子入队
+    }
+}
+
+```
+
+![图05-39 层次遍历实例（出队节点以深色示意）](https://user-images.githubusercontent.com/78013131/212520290-c6787e49-8490-4afa-9d66-0d6008ef1ba1.png)
+
+#### 完全二叉树
+
+叶节点虽然不致少于内部节点，但是至多多出一个。
+
+#### 满二叉树
+
+所有叶节点都处于最底层。
+
+
+## 5.5 Huffman编码
+
+### PFC编码及解码

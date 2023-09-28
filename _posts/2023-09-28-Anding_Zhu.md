@@ -144,7 +144,108 @@ $$
 \begin{equation*} \eta _{\mathrm{ comb}} = \frac {\big (\sqrt {1-C_{o}^{2}} + C_{o} \sqrt {P_{o,a}/P_{o,m}}\,\big)^{2} }{1+P_{o,a}/P_{o,m}}\tag{17}\end{equation*}
 $$
 
-它是 $ C_o $ 和功率比 $ p_{o,a}/P_{o,m} $ 的函数。 在图 5 中，显示了不同 $ C_o $ 值的组合器效率与归一化输出功率的关系。 在回退状态中， $\eta _{comb,bo} = 1 − C^2_ o$ ； 因此，为了提高效率，优选使用较低的耦合系数。 在峰值功率下，$P_{o,a}/P_{o,m} = K_ p$，其中对于给定的 OPBO，$ K_p $ 是从 (15) 导出的。 耦合系数较低时，合路器效率 $\eta _{comb,pp}$ 会降低。 在回退功率和峰值功率之间存在一个功率水平，此时组合器效率变为100%。 这是传送到隔离端口的功率为零的点，根据 (7)，可得出 $P_{o,a}/P_{o,m} = C_o^2/(1-C_o^2)$。 可以看出，这种情况发生在归一化输出功率电平 $−OPBO − 20 \log_{10}(1 − C^2_ o )$ 处，例如，OPBO = 6dB以及Co =−8dB 时，在 −4.5 dB 回退电平处。
+它是 $ C_o $ 和功率比 $ p_{o,a}/P_{o,m} $ 的函数。 在图 5 中，显示了不同 $ C_o $ 值的组合器效率与归一化输出功率的关系。 在回退状态中， $ \eta_{comb,bo} = 1 − C_{o}^{2} $ ； 因此，为了提高效率，优选使用较低的耦合系数。 在峰值功率下，$ P_{o,a}/P_{o,m} = K_ p $，其中对于给定的 OPBO，$ K_p $ 是从 (15) 导出的。 耦合系数较低时，合路器效率 $ \eta _{comb,pp} $ 会降低。 在回退功率和峰值功率之间存在一个功率水平，此时组合器效率变为100%。 这是传送到隔离端口的功率为零的点，根据 (7)，可得出 $ P_{o,a}/P_{o,m} = C_{o}^{2}/(1-C_{o}^{2}) $。 可以看出，这种情况发生在归一化输出功率电平 $ −OPBO − 20 \log_{10}(1 − C_{o}^{2} ) $ 处，例如，OPBO = 6dB以及Co =−8dB 时，在 −4.5 dB 回退电平处。
+
+![image5](https://github.com/WaveDragon/test/assets/78013131/b7d583a7-a2ce-4ce9-aaf4-31a30c38bfc0)
+
+>对于输出组合器的不同耦合系数，输出组合器效率与归一化输出功率的关系。 (a) 6dB OPBO。 (b) 9dB OPBO。
+
+
+
+施加到 PA 的输入功率在主子 PA 和辅助子 PA 之间分配。 使用图2所示的电路（输入网络），假设子PA的输入阻抗与输入耦合器和输入源阻抗匹配，即 $ Z_{i,m} = Z_{i,a } = Z_0 = R_S $，则可以被证明
+
+$$
+\begin{align*} V_{i,m}=&V_{2}^{-} = S_{21} V_{1}^{+} = C_{i} V_{\mathrm{ in}}\tag{18}\\ V_{i,a}=&V_{3}^{-} = S_{31} V_{1}^{+} = -j \sqrt {1-C_{i}^{2}}V_{\mathrm{ in}}\tag{19}\end{align*}
+$$
+
+其中 $ C_i $ 是输入混合耦合器的耦合系数。 传送到主子 PA 和辅助子 PA 的输入功率由下式给出:
+
+$$
+\begin{align*} P_{i,m}=&C_{i}^{2} P_{\mathrm{ in}}\tag{20}\\ P_{i,a}=&\big (1-C_{i}^{2}\big) P_{\mathrm{ in}}.\tag{21}\end{align*}
+$$
+
+因此，主辅子PA的输出功率根据输入功率得出如下：
+
+$$
+\begin{align*} P_{o,m}=&\begin{cases} G_{p} C_{i}^{2}P_{\mathrm{ in}} & P_{\mathrm{ in}} < P_{\mathrm{ in,bo}}\\ P_{\mathrm{ sat}} & P_{\mathrm{ in}} \geq P_{\mathrm{ in,bo}}\\ \end{cases}\tag{22}\\ P_{o,a}=&\begin{cases} 0 & P_{\mathrm{ in}} < P_{\mathrm{ in,bo}}\\ A \big (1-C_{i}^{2}\big)^{n}(P_{\mathrm{ in}}-P_{\mathrm{ in,bo}})^{n} & P_{\mathrm{ in,bo}}\leq P_{\mathrm{ in}} < P_{\mathrm{ in,pp}}\\ P_{\mathrm{ sat,a}} & P_{\mathrm{ in}} \geq P_{\mathrm{ in,pp}}\\ \end{cases} \\\tag{23}\end{align*}
+$$
+
+其中 $ P_{in,bo} $ 和 $ P_{in,pp} $ 分别是回退和峰值功率时的输入功率电平，由下式给出
+
+$$
+\begin{align*} P_{\mathrm{ in,bo}}=&\frac {1}{C_{i}^{2}}\frac {P_{\mathrm{ sat}}}{G_{p}} = \frac {P_{on,a}}{1-C_{i}^{2}}\tag{24}\\ P_{\mathrm{ in,pp}}=&\left [{\frac {1}{C_{i}^{2}}+\frac {K_{p}}{K_{g}}\frac {1}{1-C_{i}^{2}}}\right] \frac {P_{\mathrm{ sat}}}{G_{p}}.\tag{25}\end{align*}
+$$
+
+使用(24)，可以得出辅助子PA所需的开启功率电平。 不平衡 PA 的输入输出功率特性可以使用 (4)、(22) 和 (23) 得出。
+
+$$
+\begin{align*} \eta = \frac {\big (1-C_{o}^{2}\big) P_{o,m} + C_{o}^{2} P_{o,a} + 2 C_{o} \sqrt {1-C_{o}^{2}}\sqrt {P_{o,m}P_{o,a}}}{\frac {1}{\eta _{m}} P_{o,m} + \frac {1}{\eta _{a}} P_{o,a}} \\\tag{26}\end{align*}
+$$
+
+其中 $ \eta_{m} $ 和 $ \eta_{a} $ 分别表示主子 PA 和辅助子 PA 的效率。 使用 (22)、(23) 和 (26)，回退和峰值功率时的效率由下式给出:
+
+$$
+\begin{align*} \eta _{\mathrm{ bo}}=&\big (1-C_{o}^{2}\big) \eta _{m}\tag{27}\\ \eta _{\mathrm{ pp}}=&\frac {\big (\sqrt {1-C_{o}^{2}} + \sqrt {K_{p}} C_{o}\big)^{2}}{\frac {1}{\eta _{m}} + \frac {K_{p}}{\eta _{a}} }.\tag{28}\end{align*}
+$$
+
+值得注意的是，回退和峰值功率时的效率可能不同。 利用(15)、(27)、(28)可以证明:
+
+$$
+\begin{equation*} \frac {\eta _{\mathrm{ bo}}}{\eta _{\mathrm{ pp}}} = \left [{ 1+ K_{p} \frac {\eta _{m}}{\eta _{a}} }\right] 10^{-{\mathrm{ OPBO}}/20}\tag{29}\end{equation*}
+$$
+
+对于 $ K_p > (10^{OPBO/20} − 1) \eta _a / \eta _m $ 来说大于 1。对于 6-dB 回退电平和  $\eta _m = \eta _a $  可以满足 $ K_p $ > 1 ，即 $ C_o $ < 1/√2。 因此，优选较小的输出耦合系数以实现较高的回退效率。
+
+在峰值功率和回退以外的输出功率水平下，效率 (26) 通过 $ P_{o,m} $ 、$ P_{o,a} $ 、$ \eta _m $ 和 $ \eta _a $ 与功率相关。 为了获得输入功率的 $ \eta _m $ 和 $ \eta _a $ ，我们首先注意到饱和状态下短沟道晶体管的漏极电流由下式给出
+
+$$
+\begin{equation*} I_{D} \approx k_{0} W (V_{\mathrm{ GS}} - V_{T})\tag{30}\end{equation*}
+$$
+
+其中 k0 是与工艺相关的参数，W 是晶体管的宽度，VGS 是栅源电压，VT 表示增强（耗尽）模式晶体管的阈值（夹断）电压 [20]。 我们假设 RF 信号的形式为
+
+$$
+\begin{equation*} V_{\mathrm{ GS}}(t) = V_{\mathrm{ GS0}} + V_{\mathrm{ RF}} \cos (\omega _{0} t)\tag{31}\end{equation*}
+$$
+
+应用于晶体管。 漏极电流波形取决于偏置模式。 如果晶体管在 B 类模式下偏置，即 $ V_{GS0} = V_T $ （如主 subPA 的预期），则产生的漏极电流是峰值为 $ k_{0} WV_{RF} $ 的半波正弦曲线。 该波形的直流分量和基波分量 $ I_{D0} $ 和 $ I_{D1} $ 均与 $ V_{RF} $ 成正比。 结果，直流和射频功率分量变化为 $ P_{dc}  = V_{DD}I_{D0} \propto V_{RF} $ 和 $ P_{RF} \propto  R_{opt} I_{D1}^{2} \propto V_{RF}^{2} $ ，导致 $ \eta = P_{RF}/P_{dc} \propto V_{RF} $ 。 对于匹配的晶体管，$ P_{in} \propto \sprt{P_{in}} $ ； 因此，$ \eta  \propto \sqrt{P_in} $ 。 因此，主子PA的效率可以表示为
+
+$$
+\begin{align*} \eta _{m} = \begin{cases} \eta _{m,{\mathrm{ max}}}\displaystyle \sqrt {\frac {P_{\mathrm{ in}}}{P_{\mathrm{ in,bo}}}}& P_{\mathrm{ in}} < P_{\mathrm{ in,bo}}\\ \eta _{m,{\mathrm{ max}}} & P_{\mathrm{ in}} \geq P_{\mathrm{ in,bo}}\\ \end{cases}\tag{32}\end{align*}
+$$
+
+其中 $ \eta _{m,max} $ 表示饱和时的最大效率，例如，B 类模式下 $ \eta _{m,max} = \pi /4 = 78.5 % $ 。
+
+
+
+如果晶体管在 C 类模式下偏置，即 $ V_{GS0} $ < $ V_T $ ，如辅助子 PA 预期的那样，则应考虑不同的情况。 电流波形的导通角 $ \alpha $ 由式(30)和式(31)导出：
+
+$$
+\begin{equation*} \alpha = 2 \cos ^{-1} \left [{\frac {V_{T} - V_{\mathrm{ GS0}} }{V_{\mathrm{ RF}}} }\right]\tag{33}\end{equation*}
+$$
+
+这取决于射频电压幅度。 传统上，导通角被定义为最大射频电压，这会导致 PA 饱和。 可以看出，电流波形分量 $ I_{D0} $ 和 $ I_{D1} $ 导出为:
+
+$$
+\begin{align*} I_{D0} (\alpha)=&\frac {k_{0}WV_{\mathrm{ RF}}}{2\pi } \frac {2\sin \left ({\frac {\alpha }{2}}\right) - \alpha \cos \left ({\frac {\alpha }{2}}\right)}{1-\cos \left ({\frac {\alpha }{2}}\right)}\tag{34}\\ I_{D1} (\alpha)=&\frac {k_{0}WV_{\mathrm{ RF}}}{2\pi } \frac {\alpha - \sin (\alpha)}{1-\cos \left ({\frac {\alpha }{2}}\right)}.\tag{35}\end{align*}
+$$
+
+直流功率由 $ P_{dc} = V_{DD}I_{D0}( \alpha ) $ 给出，而射频功率由 
+$ P_{\mathrm{RF}}=(1 / 2) R_{\mathrm{opt}}(\alpha) I_{D 1}^{2}(\alpha) \approx(1 / 2)\left[V_{\mathrm{DD}} / I_{D 1, \max }(\alpha)\right] I_{D 1}^{2}(\alpha) $ 
+其中 $ I_{D 1, \max} $ 表示最大 RF 电压 $ V_{RF,max} $ 处的基波漏极电流分量。 因此，使用（34）和（35），效率可以表示为:
+
+$$
+\begin{equation*} \eta _{a} (\alpha) \approx \frac {1}{2} \frac {I_{D1} ^{2}(\alpha)}{I_{D1,{\mathrm{ max}}} (\alpha)I_{D0} (\alpha)} = \eta _{a,{\mathrm{ max}}} (\alpha) \frac {V_{\mathrm{ RF}}}{V_{\rm RF,{\mathrm{ max}}}}\tag{36}\end{equation*}
+$$
+
+其中  $ \eta _{a,{\mathrm{ max}}} (\alpha) $ C 类 PA 饱和时的最大效率
+
+$$
+\begin{equation*} \eta _{a,{\mathrm{ max}}} (\alpha) = \frac {1}{4} \frac {\alpha - \sin (\alpha)}{\sin \left ({\frac {\alpha }{2}}\right) - \frac {\alpha }{2} \cos \left ({\frac {\alpha }{2}}\right)}.\tag{37}\end{equation*}
+$$
+
+
+
 
 ### 待用图片
 

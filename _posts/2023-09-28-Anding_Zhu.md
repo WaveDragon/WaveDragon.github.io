@@ -44,7 +44,7 @@ Index Terms — 回退、平衡放大器、宽带电路、耦合器、第五代 
 ### B.回退效率增强
 
 ![image2](https://github.com/WaveDragon/test/assets/78013131/bcb287d1-bda4-4e9a-8ea6-c2e33b8ed2ea)
-用于分析不平衡 PA 的等效电路。 入射和反射电压波分量分别以蓝色和红色显示。 所需的功率流路径由蓝色宽箭头显示。
+>用于分析不平衡 PA 的等效电路。 入射和反射电压波分量分别以蓝色和红色显示。 所需的功率流路径由蓝色宽箭头显示。
 
 我们对不平衡 PA 结构进行了详细分析，以展示其运行机制。 定向耦合器可以通过以下散射参数矩阵来描述[19]：
 
@@ -80,7 +80,8 @@ $$
 $$ \begin{equation*} V_{\mathrm{ iso}} = C_{o} V_{o,m} {-} j \sqrt {1-C_{o}^{2}} V_{o,a}.\tag{6}\end{equation*} 
 $$
 
-如果主辅子PA的输出电压比可以保持为 $ {\lvert V_{o,a}\rvert}/{\lvert V_{o,m}\rvert} = C_{o}/(1 − C^2_o )^{1/2} $ ，则 $ V_{iso} = 0 $，输出功率到隔离端口变为零。 然而，这并不是在 $ V_{o,a} = 0 $ 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
+如果主辅子PA的输出电压比可以保持为 $ {\lvert V_{o,a}\rvert} / {\lvert V_{o,m}\rvert} = C_{o}/(1 − C_{o}^{2} )^{1/2} $ ，
+则 $ V_{iso} = 0 $，输出功率到隔离端口变为零。 然而，这并不是在 $ V_{o,a} = 0 $ 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
 
 $$ \begin{align*} P_{\mathrm{ iso}} = C_{o}^{2} P_{o,m} + \big (1-C_{o}^{2}\big) P_{o,a} - 2 C_{o} \sqrt {1-C_{o}^{2}} \sqrt {P_{o,m} P_{o,a}}. \\\tag{7}\end{align*}
 $$
@@ -88,7 +89,7 @@ $$
 根据功率守恒定律，$P_{out} + P_{iso} = P_{o,m} + P_{o,a}$。事实上，**<font color = salmon>这种四端口输出功率合路器提高了功率放大器的带宽，但由于隔离端口的功率损耗，效率却有所降低。为了提高输出功率合路器的效率，应尽量减小 Piso</font>**。我们将在下文中详细讨论这一问题。两个副 PA 的输出功率和增益相对于输入功率的特性建模如图 3所示。
 
 ![image3](https://github.com/WaveDragon/test/assets/78013131/5ce588d2-fb52-4dd9-a0f6-d3c9f70bfb3d)
-子 PA 输出功率和增益与输入功率特性的简化模型。(a) Main sub-PA.(b) Auxiliary sub-PA ($ A = (K_gG_p)^n/(K_pP_{sat})^{n-1} $)
+>子 PA 输出功率和增益与输入功率特性的简化模型。(a) Main sub-PA.(b) Auxiliary sub-PA ($ A = (K_gG_p)^n/(K_pP_{sat})^{n-1} $)
 
 AB 类偏置的主副 PA 由 $G_P$ 的线性功率增益建模，直到饱和为止，其中假定输出功率恒定为 $ P_{sat}$ 。输入饱和功率电平由 $ P_{sat}/G_p $ 给出。辅助副 PA 采用 C 类偏置，输入开启功率电平为 $P_{on,a}$。当输入功率水平低于$P_{on,a}$ 时，输出功率和增益均为零，接通后输出功率和增益逐渐增大。输出功率和增益与输入功率的关系是非线性的，我们将其描述为:
 
@@ -120,10 +121,35 @@ $$
 \begin{align*} P_{\mathrm{ out,pp}}=&\big (\sqrt {1-C_{o}^{2}} + \sqrt {K_{p}} C_{o}\big)^{2} P_{\mathrm{ sat}}\tag{13}\\ P_{\mathrm{ out,bo}}=&\big (1-C_{o}^{2}\big)P_{\mathrm{ sat}}\tag{14}\end{align*}
 $$
 
+导致 OPBO 水平为
+
+$$
+\begin{equation*} {\mathrm{ OPBO}} = 20 \log _{10} \left [{1 + \frac { \sqrt {K_{p}} C_{o}}{\sqrt {1-C_{o}^{2}}} }\right]\!.\tag{15}\end{equation*}
+$$
+
+请注意，**<font color = salmon>回退水平取决于晶体管的功率比和输出耦合器的耦合系数 </font>**。 图 4 显示了 OPBO 与参数 $ K_p $ 和 $ C_o $ 的关系。对于 3 dB 耦合器 $ (C_o = 1 / \sqrt{2}) $ ，6 dB 回退要求 $ K_p = 1 $ ，这与 Doherty PA 中的相同 。 对于较低的耦合系数，例如 −4.8 dB $ (C_o = 1 / \sqrt{3}) $，晶体管的功率比应该更大 $ K_p = 2 $。 我们将在本文中比较非平衡 PA 和 Doherty PA 的特性。 此时，我们注意到，在不平衡 PA 中，回退电平可以通过两个参数来控制，而在 Doherty PA 中只能通过晶体管宽度比来调整。 如果我们假设辅助晶体管的宽度是主晶体管的两倍且 $ K_p = K_w = 2 $ ，则 Doherty PA 的回退电平可得出： OPBO = 20log10(1 + $ K_p $ ) = 9.5 dB，而在非平衡 PA 中，它可以在很宽的范围内控制，如式（15）和图 4 所示。
+
+![image4](https://github.com/WaveDragon/test/assets/78013131/dae2e24c-a1b9-4233-a0a3-dd7a7502d8d3)
+>OPBO电平与晶体管功率比Kp和输出耦合器Co的耦合系数的关系 
+
+如前所述，**输出功率合成器由于隔离端口中的功率损耗而具有不完美的效率**。 我们推导出组合器的效率，并研究输出耦合器的耦合系数对其性能的影响。 组合器的效率由下式给出
+
+$$
+\begin{equation*} \eta _{\mathrm{ comb}} = \frac {P_{\mathrm{ out}}}{P_{\mathrm{ out}}+P_{\mathrm{ iso}}} = \frac {P_{\mathrm{ out}}}{P_{o,m}+P_{o,a}}.\tag{16}\end{equation*}
+$$
+
+通过(4)可以表达为：
+
+$$
+\begin{equation*} \eta _{\mathrm{ comb}} = \frac {\big (\sqrt {1-C_{o}^{2}} + C_{o} \sqrt {P_{o,a}/P_{o,m}}\,\big)^{2} }{1+P_{o,a}/P_{o,m}}\tag{17}\end{equation*}
+$$
+
+它是 $ C_o $ 和功率比 $ p_{o,a}/P_{o,m} $ 的函数。 在图 5 中，显示了不同 $ C_o $ 值的组合器效率与归一化输出功率的关系。 在回退状态中， $\eta _{comb,bo} = 1 − C^2_ o$ ； 因此，为了提高效率，优选使用较低的耦合系数。 在峰值功率下，$P_{o,a}/P_{o,m} = K_ p$，其中对于给定的 OPBO，$ K_p $ 是从 (15) 导出的。 耦合系数较低时，合路器效率 $\eta _{comb,pp}$ 会降低。 在回退功率和峰值功率之间存在一个功率水平，此时组合器效率变为100%。 这是传送到隔离端口的功率为零的点，根据 (7)，可得出 $P_{o,a}/P_{o,m} = C_o^2/(1-C_o^2)$。 可以看出，这种情况发生在归一化输出功率电平 $−OPBO − 20 \log_{10}(1 − C^2_ o )$ 处，例如，OPBO = 6dB以及Co =−8dB 时，在 −4.5 dB 回退电平处。
+
 ### 待用图片
 
 
-![image4](https://github.com/WaveDragon/test/assets/78013131/dae2e24c-a1b9-4233-a0a3-dd7a7502d8d3)
+
 
 ![image5](https://github.com/WaveDragon/test/assets/78013131/b7d583a7-a2ce-4ce9-aaf4-31a30c38bfc0)
 

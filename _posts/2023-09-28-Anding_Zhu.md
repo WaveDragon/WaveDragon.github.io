@@ -144,7 +144,7 @@ $$
 \begin{equation*} \eta _{\mathrm{ comb}} = \frac {\big (\sqrt {1-C_{o}^{2}} + C_{o} \sqrt {P_{o,a}/P_{o,m}}\,\big)^{2} }{1+P_{o,a}/P_{o,m}}\tag{17}\end{equation*}
 $$
 
-它是 $ C_o $ 和功率比 $ p_{o,a}/P_{o,m} $ 的函数。 在图 5 中，显示了不同 $ C_o $ 值的组合器效率与归一化输出功率的关系。 在回退状态中， $ \eta_{comb,bo} = 1 − C_{o}^{2} $ ； 因此，为了提高效率，优选使用较低的耦合系数。 在峰值功率下，$ P_{o,a}/P_{o,m} = K_ p $，其中对于给定的 OPBO，$ K_p $ 是从 (15) 导出的。 耦合系数较低时，合路器效率 $ \eta _{comb,pp} $ 会降低。 在回退功率和峰值功率之间存在一个功率水平，此时组合器效率变为100%。 这是传送到隔离端口的功率为零的点，根据 (7)，可得出 $ P_{o,a}/P_{o,m} = C_{o}^{2}/(1-C_{o}^{2}) $。 可以看出，这种情况发生在归一化输出功率电平 $ −OPBO − 20 \log_{10}(1 − C_{o}^{2} ) $ 处，例如，OPBO = 6dB以及Co =−8dB 时，在 −4.5 dB 回退电平处。
+它是 $ C_o $ 和功率比 $ p_{o,a}/P_{o,m} $ 的函数。 在图 5 中，显示了不同 $ C_o $ 值的组合器效率与归一化输出功率的关系。 在回退状态中， $ \eta_{comb,bo} = 1 − C_{o}^{2} $ ； 因此，为了提高效率，优选使用较低的耦合系数。 在峰值功率下，$ P_{o,a}/P_{o,m} = K_ p $，其中对于给定的 OPBO，$ K_p $ 是从 (15) 导出的。 耦合系数较低时，合路器效率 $ \eta _{comb,pp} $ 会降低。 在回退功率和峰值功率之间存在一个功率水平，此时组合器效率变为100 。 这是传送到隔离端口的功率为零的点，根据 (7)，可得出 $ P_{o,a}/P_{o,m} = C_{o}^{2}/(1-C_{o}^{2}) $。 可以看出，这种情况发生在归一化输出功率电平 $ −OPBO − 20 \log_{10}(1 − C_{o}^{2} ) $ 处，例如，OPBO = 6dB以及Co =−8dB 时，在 −4.5 dB 回退电平处。
 
 ![image5](https://github.com/WaveDragon/test/assets/78013131/b7d583a7-a2ce-4ce9-aaf4-31a30c38bfc0)
 
@@ -208,7 +208,7 @@ $$
 \begin{equation*} V_{\mathrm{ GS}}(t) = V_{\mathrm{ GS0}} + V_{\mathrm{ RF}} \cos (\omega _{0} t)\tag{31}\end{equation*}
 $$
 
-应用于晶体管。 漏极电流波形取决于偏置模式。 如果晶体管在 B 类模式下偏置，即 $ V_{GS0} = V_T $ （如主 subPA 的预期），则产生的漏极电流是峰值为 $ k_{0} WV_{RF} $ 的半波正弦曲线。 该波形的直流分量和基波分量 $ I_{D0} $ 和 $ I_{D1} $ 均与 $ V_{RF} $ 成正比。 结果，直流和射频功率分量变化为 $ P_{dc}  = V_{DD}I_{D0} \propto V_{RF} $ 和 $ P_{RF} \propto  R_{opt} I_{D1}^{2} \propto V_{RF}^{2} $ ，导致 $ \eta = P_{RF}/P_{dc} \propto V_{RF} $ 。 对于匹配的晶体管，$ P_{in} \propto \sprt{P_{in}} $ ； 因此，$ \eta  \propto \sqrt{P_in} $ 。 因此，主子PA的效率可以表示为
+应用于晶体管。 漏极电流波形取决于偏置模式。 如果晶体管在 B 类模式下偏置，即 $ V_{GS0} = V_T $ （如主 subPA 的预期），则产生的漏极电流是峰值为 $ k_{0} WV_{RF} $ 的半波正弦曲线。 该波形的直流分量和基波分量 $ I_{D0} $ 和 $ I_{D1} $ 均与 $ V_{RF} $ 成正比。 结果，直流和射频功率分量变化为 $ P_{dc}  = V_{DD}I_{D0} \propto V_{RF} $ 和 $ P_{RF} \propto  R_{opt} I_{D1}^{2} \propto V_{RF}^{2} $ ，导致 $ \eta = P_{RF}/P_{dc} \propto V_{RF} $ 。 对于匹配的晶体管，$ P_{in} \propto \sqrt{P_{in}} $ ； 因此，$ \eta  \propto \sqrt{P_in} $ 。 因此，主子PA的效率可以表示为
 
 $$
 \begin{align*} \eta _{m} = \begin{cases} \eta _{m,{\mathrm{ max}}}\displaystyle \sqrt {\frac {P_{\mathrm{ in}}}{P_{\mathrm{ in,bo}}}}& P_{\mathrm{ in}} < P_{\mathrm{ in,bo}}\\ \eta _{m,{\mathrm{ max}}} & P_{\mathrm{ in}} \geq P_{\mathrm{ in,bo}}\\ \end{cases}\tag{32}\end{align*}
@@ -244,6 +244,129 @@ $$
 \begin{equation*} \eta _{a,{\mathrm{ max}}} (\alpha) = \frac {1}{4} \frac {\alpha - \sin (\alpha)}{\sin \left ({\frac {\alpha }{2}}\right) - \frac {\alpha }{2} \cos \left ({\frac {\alpha }{2}}\right)}.\tag{37}\end{equation*}
 $$
 
+参数 $ V_{\mathrm{RF}} / V_{\mathrm{RF} \text {,max }} $ 可以使用 $ V_{RF} \propto \sqrt{P_{in}}  $ 与输入功率相关。并注意辅助子 PA 在 $ P_{in,bo} $ 处开启并在 $ P_{in,pp} $ 处达到饱和。因此，辅助子PA的效率可以表示为
+
+$$
+\begin{align*} \eta _{a}= \begin{cases} 0 & P_{\mathrm{ in}} < P_{\mathrm{ in,bo}}\\ \eta _{a,{\mathrm{ max}}}\displaystyle \sqrt {\frac {P_{\mathrm{ in}} - P_{\mathrm{ in,bo}}}{P_{\mathrm{ in,pp}} - P_{\mathrm{ in,bo}}}} & P_{\mathrm{ in,bo}} \leq P_{\mathrm{ in}} < P_{\mathrm{ in,pp}}\\ \eta _{a,{\mathrm{ max}}} & P_{\mathrm{ in}} \geq P_{\mathrm{ in,pp}}\\ \end{cases}\tag{38}\end{align*}
+$$
+
+其中 $ \eta _{a,max} $ 由(37)给出
+
+不平衡 PA (26) 的总效率可以根据输出功率得出，如图 6 所示。 假设主子 PA 和辅助子 PA 的最大效率分别为 ηm,max=78.5% (B类)和ηa,max=85.5%（C类，导通角α=0.8π），而输入耦合器的耦合系数为Ci=−3dB。 值得注意的是，通过降低输出耦合器Co的耦合系数，回退效率ηbo提高，但代价是峰值功率效率ηpp降低。 对于小 Co ， ηbo→ηm ，如 (27) 所预期的那样。 也有可能实现类似 Doherty 的行为，例如，对于 Co≈−6 dB，但对于具有大 PAPR 的调制信号，首选更高的回退效率，其中它们的概率密度函数 (pdf) 主要集中在 后退。
+
+![image6](https://github.com/WaveDragon/test/assets/78013131/1d275e77-a2c4-431e-8209-eedec138e8eb)
+>不平衡 PA 的效率与标准化输出功率的关系。 (a) 6dB OPBO。 (b) 9dB OPBO。 主子PA和辅助子PA的最大效率分别为ηm,max=78.5%（B级）和ηa,max=85.5%（C级，导通角α=0.8π）。 假设Ci=-3dB并且n=1.5。
+
+不平衡 PA 的增益可以使用为输出组合器 (4)、输入分配器 (20) 和 (21) 以及子 PA (22) 和 (23) 开发的模型得出。 特别是，使用 (13)、(14)、(24) 和 (25) 可以得出输出回退和峰值功率处的增益：
+
+$$
+\begin{align*} G_{\mathrm{ bo}}=&C_{i}^{2} \big (1-C_{o}^{2}\big) G_{p}\tag{39}\\ G_{\mathrm{ pp}}=&\frac {\big (\sqrt {1-C_{o}^{2}} + \sqrt {K_{p}} C_{o}\big)^{2}}{\frac {1}{C_{i}^{2}}+\frac {K_{p}}{K_{g}}\frac {1}{1-C_{i}^{2}} } G_{p}.\tag{40}\end{align*}
+$$
+
+图 7 显示了不平衡 PA 的增益与输出功率的关系。 假设主子PA和辅助子PA的增益分别为 $ G_p = 10 $ 和 $ G_{p,a} = K_{g}G_{p} $ ，其中Kg≈1和Kp根据OPBO和Co使用(15)确定。 此外，在模拟中考虑Ci=-3dB。
+
+![image7](https://github.com/WaveDragon/test/assets/78013131/966a6cea-de19-40b5-aa47-6033aa620b07)
+>不平衡 PA 的增益与标准化输出功率的关系。 (a) 6dB OPBO。 (b) 9dB OPBO。 主子PA和辅助子PA的增益分别为 $ G_p = 10 $ 和 $ K_g G_p = 10 $ 。 假设Ci=-3dB并且n=1.5。
+
+输入耦合器的耦合系数对不平衡PA的效率和增益的影响如图8所示。效率受Ci的影响很小，而较大的Ci有助于实现更高的增益。 此外，值得注意的是，对于一些Ci值，例如-5dB < Ci <-4dB，回退范围内的增益变化可以被最小化。 这减少了 PA 的 AM-AM 失真，这对于高 PAPR 调制信号尤其重要。 我们可以设置 Ci 来实现 $ G_{bo} = G_{pp} $ ，使用 (39)、(40) 和 (4)，结果为
+
+$$
+\begin{equation*} C_{i} = \left [{ \frac {10^{\mathrm{ OPBO/10}}-1}{10^{\mathrm{ OPBO/10}}-1+K_{p}/K_{g}} }\right]^{1/2}.\tag{41}\end{equation*}
+$$
+
+对于OPBO=6dB、Co=-8dB、Kg=1，最佳Ci导出为Ci=-4.4dB。 应该注意的是，在回退到峰值功率范围内仍然存在一些增益变化，这取决于两个子 PA 的非线性分布，例如参数 n ，但通常很小
+
+![image8](https://github.com/WaveDragon/test/assets/78013131/077f9fd2-680e-4731-94fe-284a10d5d993)
+
+>输入耦合器耦合系数对不平衡 PA 效率和增益的影响。 (a)效率。 (b) 增益。 假设OPBO=6dB，Co=-8dB，并且n=1.5。
+
+
+根据主子 PA 和辅助子 PA 的输入功率要求确定 Ci 时还有另一个重要考虑因素。 在饱和状态下使用 (20) 和 (21)，Ci 可以导出为
+
+$$
+\begin{equation*} C_{i} = \frac {1}{\sqrt {1+P_{i,a}/P_{i,m}}} = \frac {1}{\sqrt {1 + K_{p}/K_{g}}}.\tag{42}\end{equation*}
+$$
+
+对于OPBO=6dB、Co=-8dB并且Kg=1，这导致Ci=-8.0dB。 到目前为止，我们讨论了根据增益、增益变化和输入功率驱动要求设置 Ci 的三个标准。 如果子 PA 实现为单级放大器，则应根据输入功率驱动要求选择 Ci，以确保不平衡 PA 的正常运行。 然而，在子 PA 使用多级放大器的情况下，可以设置 Ci 来最小化增益变化，同时驱动级满足增益要求。
+
+最后一点是辅助子PA的非线性模型参数n对不平衡PA性能的影响。 在图 9 中，显示了 1≤n≤2 时的效率和功率增益与输出回退的关系。 n 越大，回退到峰值功率范围内的效率会稍高，而回退和峰值功率处的效率与该参数无关。 此外，在 n 的适中值下实现了最小增益变化。
+
+![image9](https://github.com/WaveDragon/test/assets/78013131/8badcdc3-7028-4af4-9a92-970095ad9acc)
+>C 类辅助子 PA 非线性参数 n（以 $ P_{o,a} = A(P_{i,a} − P_{on,a})^{n} $ 表示）对不平衡 PA 的效率和增益的影响。 (a)效率。 (b) 增益。 假设 OPBO=6 dB、Co=−8 dB 和 Ci=−3 dB。
+
+### C.线性操作
+
+我们根据子 PA 的散射参数和混合耦合器的耦合系数推导出不平衡 PA 的小信号散射参数。 为了简化分析，假设子PA是单边的，即 $ S_{12} = 0 $ 。 使用图10 和 (1) 所示的电路，可得出入射电压波 $ V_{1}^{+} $ 和 $ V_{2}^{+} $ 为
+
+$$
+\begin{align*} V_{1}^{+}=&C_{i} V_{\mathrm{ in}}^{+}\tag{43}\\ V_{2}^{+}=&-j\sqrt {1-C_{i}^{2}}V_{\mathrm{ in}}^{+}.\tag{44}\end{align*}
+$$
+
+由于假设放大器是单边的，因此其输入端口处的反射电压波由下式给出
+
+$$
+\begin{align*} V_{1}^{-}=&S_{11,m}V_{1}^{+}\tag{45}\\ V_{2}^{-}=&S_{11,a}V_{2}^{+}.\tag{46}\end{align*}
+$$
+
+因此，输入反射波可导出为
+
+$$
+\begin{equation*} V_{\mathrm{ in}}^{-} = C_{i} V_{1}^{-} - j\sqrt {1-C_{i}^{2}} V_{2}^{-}.\tag{47}\end{equation*}
+$$
+
+不平衡 PA 的输入反射系数可使用 (43)–(47) 和 
+$ S_{11,UPA} = V_{in}^{-} / V_{in}^{+} $ 得出：
+
+$$
+\begin{equation*} S_{11,{\mathrm{ UPA}}} = C_{i}^{2} S_{11,m} - \big (1-C_{i}^{2}\big) S_{11,a}.\tag{48}\end{equation*}
+$$
+
+类似地，可以得出输出反射系数为
+
+$$
+\begin{equation*} S_{22,{\mathrm{ UPA}}} = -\big (1- C_{o}^{2}\big)S_{22,m} + C_{o}^{2} S_{22,a}.\tag{49}\end{equation*}
+$$
+
+因此，输出电压波形可推导为
+
+$$
+\begin{align*} V_{3}^{-}=&S_{21,m}V_{1}^{+}\tag{50}\\ V_{4}^{-}=&S_{21,a}V_{2}^{+}.\tag{51}\end{align*}
+$$
+
+使用(43)、(44)和(50)-(52)，不平衡PA增益: $ S_{21UPA} = V_{out} / V_{in}^{+} $ 推导如下：
+
+$$
+\begin{equation*} S_{21,{\mathrm{ UPA}}} = -j\big [C_{i}\sqrt {1-C_{o}^{2}}S_{21,m}+ C_{o}\sqrt {1-C_{i}^{2}}S_{21,a}\big].\tag{53}\end{equation*}
+$$
+
+![image10](https://github.com/WaveDragon/test/assets/78013131/42c1de29-2476-48f1-a4a0-6b8818cb6f9d)
+>用于导出不平衡 PA 的散射参数的电路。
+
+如果两个子 PA 的设计使得 $ S_{11,m} = S_{11,a} $ 且 $ S_{22,m} =  S_{22,a} $ ，则 (48) 和 (49) 简化为
+
+$$
+\begin{align*} S_{11,{\mathrm{ UPA}}}=&-\big (1-2C_{i}^{2}\big) S_{11,{\mathrm{ PA}}}\tag{54}\\ S_{22,{\mathrm{ UPA}}}=&-\big (1- 2 C_{o}^{2}\big)S_{22,{\mathrm{ PA}}}\tag{55}\end{align*}
+$$
+
+表明不平衡 PA 的输入和输出反射系数比组成子 PA 的输入和输出反射系数小 $\lvert 1-2 C_{i}^{2}\rvert \text { and }\lvert 1-2 C_{o}^{2}\rvert $ 分别。 值得注意的是，非平衡PA仍然部分继承了传统平衡PA的阻抗匹配改善特性。 此功能简化了子 PA 的输出和输入匹配网络的设计。 此外，这降低了 PA 对负载（例如天线）阻抗变化的敏感性，这是 5G 应用中的一个重要挑战。 在具有相同子 PA 和 3 dB 耦合器的平衡 PA 的情况下，即 $ C_i = C_o = 1 / \sqrt{2} $，这些结果简化为 $ S_{11,UPA} = S_{22,UPA} = 0 $ 以及，$ S_{21,UPA} = −jS_{21,PA} ， 正如预期的那样[19]。
+
+### D.带宽考虑
+
+由于使用宽带兰格耦合器而不是窄带阻抗逆变器进行负载调制，因此与 Doherty PA 相比，不平衡 PA 可以提供更宽的带宽。 我们详细阐述了非平衡 PA 的带宽注意事项，以阐明其相对于 Doherty PA 的优势。 兰格耦合器可以提供宽带宽，例如全倍频程，具体取决于其布局结构和实现过程。 它们的耦合系数和相位响应偏离频带边缘的目标值，导致不平衡 PA 的性能下降（将在第 III-A 节中进一步讨论）。**兰格耦合器的带宽通常远高于非平衡 PA 的其他子电路的带宽。 由于阻抗逆变器的高阻抗变换比，Doherty PA 在回退时的带宽有限** [3]。 为了对非平衡 PA 和 Doherty PA 进行简单比较，我们假设非平衡 PA 的输出匹配网络是使用 λ/4 传输线实现的。 在图 11 所示的电路中，传输线的特性阻抗选择为 6 dB OPBO 电平。 两种架构中传输线的阻抗变换比如图 11（c）所示。 在回退时的Doherty PA中，传输线TL1和TL2的阻抗变换比分别为4和 $ R_{opt} / 2R_{L} $ ； 因此，带宽往往会受到 TL1 的显着限制。 在不平衡 PA 中，在回退功率和峰值功率下，阻抗变换比由 $ R_{opt} / R_{L} $ 和 $ R_{opt} / K_{w}R_{L} $ 给出（请注意，$ W_a = K_w W_m $；因此，$ R_{opt,a} = R_{opt} / K_{w} $ ），其中 TL1 主要是 退避时很重要。 对于典型电路参数，$ R_{opt} / R_{L} $ 通常低于 4，这表明不平衡 PA 在回退时提供更宽带宽的潜力。
+
+子 PA 的输出匹配网络应将负载电阻 RL 转换为晶体管 $ R_{opt,m} $ 和 $ R{opt,a} $ 的最佳电阻，同时吸收晶体管 $ C{out,m} $ 和 $ C_{out,a} $ 的输出寄生电容。 这些匹配网络的带宽取决于其阻抗变换比 $ R_{opt,m} / R_L $ 和 $ R_{opt,a} / R_L $ 以及最佳负载阻抗的品质因数 $ Q_{L,m} = \omega _c R_{opt,m} C_{out,m} $ 和 $ Q_{L,a} = \omega _c R_{opt,a} C_{out,a} $ （ωc 是频带中心）[21]。 应该注意的是，通过使用更高阶的匹配网络可以进一步扩展带宽，而这对于Doherty PA中的阻抗逆变器来说是不可能的。 然而，输出匹配网络的带宽和插入损耗之间存在权衡，具体取决于其电路结构和无源元件的品质因数，这转化为不平衡 PA 的效率带宽权衡。
+
+此外，在不平衡PA中，呈现给主子PA的阻抗与辅助子PA的输出阻抗无关。 这是正交耦合器的基本特征，可以解释如下。 利用式(1)，对于 $ V_{1}^{+} $ 的入射电压波，当端口2和端口3匹配时，即 $ V_{2}^{+} = V_{3}^{+} = 0 $，$ V_{1}^{-} = 0 $； 因此，$ \Gamma_ in = V_{1}^{+} / V_{1}^{-} = 0 $ 。因此，端口 1 的匹配也与端口 4 终端阻抗无关。 然而，在 Doherty PA 中，该阻抗受到辅助 PA 输出阻抗的影响，辅助 PA 的输出阻抗从峰值功率变化到回退，并且还随频率变化。 这使得不平衡 PA 的带宽比 Doherty PA 有了额外的改善。
+
+
+![image11](https://github.com/WaveDragon/test/assets/78013131/9ebf10a3-b086-46ef-9fc7-899d28cbf9a6)
+>Doherty 和非平衡 PA 的宽带性能比较。 (a) Doherty PA 架构。 (b) 不平衡的 PA 架构。 (c) 两种架构中传输线在回退（BO）和峰值功率（PP）下的阻抗变换比。 在此比较中，假设不平衡 PA 的输出匹配网络是使用 λ/4 传输线实现的。
+
+
+## PA电路设计
+
+![image12](https://github.com/WaveDragon/test/assets/78013131/5d9c9e37-4e20-4d1e-9786-de5bc0eab097)
+>实施的不平衡 PA 示意图。
 
 
 
@@ -252,21 +375,21 @@ $$
 
 
 
-![image5](https://github.com/WaveDragon/test/assets/78013131/b7d583a7-a2ce-4ce9-aaf4-31a30c38bfc0)
 
-![image6](https://github.com/WaveDragon/test/assets/78013131/1d275e77-a2c4-431e-8209-eedec138e8eb)
 
-![image7](https://github.com/WaveDragon/test/assets/78013131/966a6cea-de19-40b5-aa47-6033aa620b07)
 
-![image8](https://github.com/WaveDragon/test/assets/78013131/077f9fd2-680e-4731-94fe-284a10d5d993)
 
-![image9](https://github.com/WaveDragon/test/assets/78013131/8badcdc3-7028-4af4-9a92-970095ad9acc)
 
-![image10](https://github.com/WaveDragon/test/assets/78013131/42c1de29-2476-48f1-a4a0-6b8818cb6f9d)
 
-![image11](https://github.com/WaveDragon/test/assets/78013131/9ebf10a3-b086-46ef-9fc7-899d28cbf9a6)
 
-![image12](https://github.com/WaveDragon/test/assets/78013131/5d9c9e37-4e20-4d1e-9786-de5bc0eab097)
+
+
+
+
+
+
+
+
 
 
 ![image13](https://github.com/WaveDragon/test/assets/78013131/5cc26e7e-c6f3-4fc6-9751-e8e8330e8c2c)

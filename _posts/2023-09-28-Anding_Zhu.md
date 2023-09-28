@@ -106,11 +106,9 @@ $$
 \begin{align*} K_{p}=&\frac {P_{\mathrm{ sat,a}}}{P_{\mathrm{ sat,m}}}\tag{10}\\ K_{g}=&\frac {G_{p,a}}{G_{p,m}}.\tag{11}\end{align*}
 $$
 
-使用(8)–(11)，$ A = (K_g G_ p)^{n} / (K _p P_{sat})^{n−1} $ ，
+>公式横线_左右两端不要留空格
 
-而辅助子PA的输入饱和功率可导出为 $ P_{on,a} + K_p P_{sat}/K_gG_p $ ，
-
-如图3(b)所示。 辅助晶体管 $ W_a $ 的宽度比主晶体管 $ W_m $ 的宽度大 $ K_w $ 倍
+使用(8)–(11)，$ A = (K_{g} G_{p})^{n} / (K_{p} P_{sat})^{n−1} $ . 而辅助子PA的输入饱和功率可导出为 $ P_{on,a} + K_p P_{sat}/K_gG_p $ ，如图3(b)所示。 辅助晶体管 $ W_a $ 的宽度比主晶体管 $ W_m $ 的宽度大 $ K_w $ 倍
 
 $$
 \begin{equation*} K_{w} = \frac {W_{a}}{W_{m}}.\tag{12}\end{equation*}

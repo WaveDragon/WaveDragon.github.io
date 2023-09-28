@@ -58,7 +58,9 @@ $$ \begin{equation*} V_{\mathrm{ out}} = V_{3}^{-} = S_{31} V_{1}^{+} + S_{34} V
 
 $$ \begin{equation*} V_{\mathrm{ out}} = -j\sqrt {1-C_{o}^{2}} V_{o,m} + C_{o} V_{o,a}.\tag{3}\end{equation*} $$
 
-需要注意的是，由于输入混合耦合器在主放大器和辅助放大器的输入电压之间提供了 90° 的相移，因此它们的输出电压之间也存在 90° 的相位差，即，这些可以被视为 $ V_{o,m} =|V_{o,m}| V_{o,a} =−j |V_{o,a}| $。对于较小的输出耦合系数，$|V_{out}|≈|V_{o,m}|$，而对于较大的耦合系数，$|V_{out}|≈|V_{o,a}|$。 因此，应选择适中的耦合系数，以实现适当的回退效率提高。 输送到负载的功率 $ P_{out} =|V_{out}|^2/2R_L $ 可使用 (3) 确定为:
+
+需要注意的是，由于输入混合耦合器在主放大器和辅助放大器的输入电压之间提供了 90° 的相移，因此它们的输出电压之间也存在 90° 的相位差，即，这些可以被视为 $ V_{o,m} =|V_{o,m}| V_{o,a} =−j |V_{o,a}| $ 。对于较小的输出耦合系数，$ |V_{out}|≈|V_{o,m}| $ ，而对于较大的耦合系数，$|V_{out}|≈|V_{o,a}|$ 。 因此，应选择适中的耦合系数，以实现适当的回退效率提高。 输送到负载的功率 $ P_{out} =|V_{out}|^2/2R_L $  可使用 (3) 确定为:
+
 
 $$ \begin{align*} P_{\mathrm{ out}} = \big (1-C_{o}^{2}\big) P_{o,m} + C_{o}^{2} P_{o,a} + 2 C_{o} \sqrt {1-C_{o}^{2}} \sqrt {P_{o,m} P_{o,a}} \\\tag{4}\end{align*} $$
 
@@ -74,16 +76,18 @@ $$
 $$ \begin{equation*} V_{\mathrm{ iso}} = C_{o} V_{o,m} {-} j \sqrt {1-C_{o}^{2}} V_{o,a}.\tag{6}\end{equation*} 
 $$
 
-如果主辅子PA的输出电压比可以保持为 $ |V_{o,a}|/|V_{o,m}|=C_o/(1 − C^2_o )^{1/2} $ ，则Viso = 0，输出功率 到隔离端口变为零。 然而，这并不是在 Vo,a = 0 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
+如果主辅子PA的输出电压比可以保持为 $ |V_{o,a}|/|V_{o,m}|=C_o/(1 − C^2_o )^{1/2} $ ，则 $V_{iso} = 0 $，输出功率到隔离端口变为零。 然而，这并不是在 $V_{o,a} = 0$ 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
 
 $$ \begin{align*} P_{\mathrm{ iso}} = C_{o}^{2} P_{o,m} + \big (1-C_{o}^{2}\big) P_{o,a} - 2 C_{o} \sqrt {1-C_{o}^{2}} \sqrt {P_{o,m} P_{o,a}}. \\\tag{7}\end{align*}
 $$
 
+根据功率守恒定律，$P_{out} + P_{iso} = P_{o,m} + P_{o,a}$。事实上，**<font color = salmon>这种四端口输出功率合路器提高了功率放大器的带宽，但由于隔离端口的功率损耗，效率却有所降低。为了提高输出功率合路器的效率，应尽量减小 Piso</font>**。我们将在下文中详细讨论这一问题。两个副 PA 的输出功率和增益相对于输入功率的特性建模如图 3所示。
+
+![image3](https://github.com/WaveDragon/test/assets/78013131/5ce588d2-fb52-4dd9-a0f6-d3c9f70bfb3d)
 
 
 ### 待用图片
 
-![image3](https://github.com/WaveDragon/test/assets/78013131/5ce588d2-fb52-4dd9-a0f6-d3c9f70bfb3d)
 
 ![image4](https://github.com/WaveDragon/test/assets/78013131/dae2e24c-a1b9-4233-a0a3-dd7a7502d8d3)
 

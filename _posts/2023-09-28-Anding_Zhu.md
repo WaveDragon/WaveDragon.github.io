@@ -80,7 +80,7 @@ $$
 $$ \begin{equation*} V_{\mathrm{ iso}} = C_{o} V_{o,m} {-} j \sqrt {1-C_{o}^{2}} V_{o,a}.\tag{6}\end{equation*} 
 $$
 
-如果主辅子PA的输出电压比可以保持为 $ \lvert V_{o,a}\rvert / \lvert V_{o,m}\rvert = C_{o}/(1 − C^2_o )^{1/2} $ ，则 $V_{iso} = 0 $，输出功率到隔离端口变为零。 然而，这并不是在 $V_{o,a} = 0$ 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
+如果主辅子PA的输出电压比可以保持为 $ {\lvert V_{o,a}\rvert}/{\lvert V_{o,m}\rvert} = C_{o}/(1 − C^2_o )^{1/2} $ ，则 $ V_{iso} = 0 $，输出功率到隔离端口变为零。 然而，这并不是在 $ V_{o,a} = 0 $ 时实现高效率的必要条件。传送到隔离端口的功率可由下式得出：
 
 $$ \begin{align*} P_{\mathrm{ iso}} = C_{o}^{2} P_{o,m} + \big (1-C_{o}^{2}\big) P_{o,a} - 2 C_{o} \sqrt {1-C_{o}^{2}} \sqrt {P_{o,m} P_{o,a}}. \\\tag{7}\end{align*}
 $$
@@ -98,7 +98,7 @@ $$
 \begin{align*} P_{o,a}=&A (P_{i,a} - P_{on,a})^{n}\tag{8}\\ G_{a}=&A (P_{i,a} - P_{on,a})^{n-1}\tag{9}\end{align*}
 $$
 
-其中 n 是偏差和过程相关的参数（通常 1 < n < 2）。 参数A可以如下确定。 我们假设饱和时的输出功率和辅助子PA的功率增益分别由 $ K _{p} P_{sat} , K_{g} G_{p} $ 给出。 参数 $ K_{p} , K_{g} $ 定义为：
+其中 n 是偏差和过程相关的参数（通常 1 < n < 2）。 参数A可以如下确定。 我们假设饱和时的输出功率和辅助子PA的功率增益分别由 $ K_{p}P_{sat} $ , $ K_{g}G_{p} $ 给出。 参数 $ K_{p} $ , $ K_{g} $ 定义为：
 
 $$
 \begin{align*} K_{p}=&\frac {P_{\mathrm{ sat,a}}}{P_{\mathrm{ sat,m}}}\tag{10}\\ K_{g}=&\frac {G_{p,a}}{G_{p,m}}.\tag{11}\end{align*}

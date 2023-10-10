@@ -200,3 +200,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+include:
+  - password_protect.html

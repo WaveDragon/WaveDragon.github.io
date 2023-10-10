@@ -1,36 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected</title>
-</head>
-<body>
-    <div id="passwordDiv">
-        <label for="passwordInput">请输入密码：</label>
-        <input type="password" id="passwordInput">
-        <button onclick="checkPassword()">提交</button>
-    </div>
-
-    <div id="contentDiv" style="display: none;">
-        ---
+---
 layout: home
 # Index page
 ---
-    </div>
-
-    <script>
-        const PASSWORD = 'yourPassword';  // 将 'yourPassword' 更改为您的密码
-        function checkPassword() {
-            const inputPassword = document.getElementById('passwordInput').value;
-            if (inputPassword === PASSWORD) {
-                document.getElementById('passwordDiv').style.display = 'none';
-                document.getElementById('contentDiv').style.display = 'block';
-            } else {
-                alert('密码错误');
-            }
-        }
-    </script>
-</body>
-</html>

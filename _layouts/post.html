@@ -9,7 +9,16 @@ tail_includes:
   - comments
 ---
 
-
+{% if page.password_protect %}
+<script>
+  var password = '******';
+  var inputPassword = prompt('Please enter the password:(contact WeChat:_llllzy_)');
+  if (inputPassword !== password) {
+    document.body.innerHTML = 'Incorrect password!';
+    throw new Error('Access Denied');
+  }
+</script>
+{% endif %}
 
 <h1 data-toc-skip>{{ page.title }}</h1>
 

@@ -2,6 +2,17 @@
 layout: default
 ---
 
+{% if page.password_protect %}
+<script>
+  var password = '******';
+  var inputPassword = prompt('Please enter the password:(contact WeChat:_llllzy_)');
+  if (inputPassword !== password) {
+    document.body.innerHTML = 'Incorrect password!';
+    throw new Error('Access Denied');
+  }
+</script>
+{% endif %}
+
 {% include assets-origin.html %}
 
 <div class="row">

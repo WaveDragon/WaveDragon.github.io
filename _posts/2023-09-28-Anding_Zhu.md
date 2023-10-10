@@ -6,6 +6,7 @@ categories: [Blogging, RadioFrequency]
 tags: [Study]
 math: true
 mermaid: true
+password_protect: true
 # image:
 #   path: /commons/devices-mockup.png
 #   width: 800

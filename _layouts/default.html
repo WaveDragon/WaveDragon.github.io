@@ -5,6 +5,17 @@ layout: compress
 
 <!DOCTYPE html>
 
+{% if page.password_protect %}
+<script>
+  var password = '******';
+  var inputPassword = prompt('Please enter the password:');
+  if (inputPassword !== password) {
+    document.body.innerHTML = 'Incorrect password!';
+    throw new Error('Access Denied');
+  }
+</script>
+{% endif %}
+
 {% include assets-origin.html %}
 
 {% capture prefer_mode %}
@@ -68,16 +79,7 @@ layout: compress
 
     {% include js-selector.html %}
 
-    {% if page.password_protect %}
-    <script>
-      var password = '******'; // 请将'your_password'替换为你自己的密码
-      var inputPassword = prompt('请输入密码。如需获取密码，请联系微信号。');
-      if (inputPassword !== password) {
-        document.body.innerHTML = '密码错误！';
-        throw new Error('访问被拒绝');
-      }
-    </script>
-    {% endif %}
+    
 
 
   </body>

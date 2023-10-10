@@ -3,14 +3,7 @@ layout: page
 # The Home page layout
 ---
 
-<script>
-  var password = '******';
-  var inputPassword = prompt('Please enter the password:');
-  if(inputPassword !== password) {
-      document.body.innerHTML = 'Incorrect password!';
-      throw new Error('Access Denied');
-  }
-</script>
+
 
 
 {% assign pinned = site.posts | where: "pin", "true" %}

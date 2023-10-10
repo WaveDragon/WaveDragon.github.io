@@ -2,3 +2,11 @@
 layout: home
 # Index page
 ---
+<script>
+    var password = 'your_password';
+    var inputPassword = prompt('Please enter the password:');
+    if(inputPassword !== password) {
+        document.body.innerHTML = 'Incorrect password!';
+        throw new Error('Access Denied');
+    }
+</script>

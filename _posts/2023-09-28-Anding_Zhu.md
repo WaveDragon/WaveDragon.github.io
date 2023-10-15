@@ -103,7 +103,7 @@ $$
 其中 n 是偏差和过程相关的参数（通常 1 < n < 2）。 参数A可以如下确定。 我们假设饱和时的输出功率和辅助子PA的功率增益分别由 $ K_{p}P_{sat} $ , $ K_{g}G_{p} $ 给出。 参数 $ K_{p} $ , $ K_{g} $ 定义为：
 
 $$
-\begin{align*} K_{p}=&\frac {P_{\mathrm{ sat,a}}}{P_{\mathrm{ sat,m}}}\tag{10}\\ K_{g}=&\frac {G_{p,a}}{G_{p,m}}.\tag{11}\end{align*}
+\begin{align*} K_{p}=&\frac {P_{\mathrm{ sat,a}}}{P_{\mathrm{ sat,m}}}\tag{10}\\ K_{g}=&\frac {G_{p,a}}{G_{p,m}} \tag{11}\end{align*}
 $$
 
 >公式横线_左右两端不要留空格

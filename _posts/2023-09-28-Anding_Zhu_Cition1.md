@@ -46,22 +46,42 @@ $$
 
 其中a和b与定向耦合器的耦合系数 $ (C_{0}) $ 有关。$ [U] $ 是单位矩阵。 对于无损耦合器，需要保证 $ 0 < C_{0} < 1 $ ，同时满足 $ b=C_{0} $ 和 $ a = {(1 − C^{2}_{0})}^{1/2} $ 。 那么，输出耦合器的电流和电压之间的关系可以表示为
 
-$$
-\begin{align*} \begin{bmatrix} V_{c} \\ V_{b2} \\ V_{b1} \\ V_{L} \\ \end{bmatrix} = Z_{0}\begin{bmatrix} 0 &\quad - jk_{1} &\quad 0 &\quad jk_{2} \\ - jk_{1} &\quad 0 &\quad jk_{2} &\quad 0 \\ 0 &\quad jk_{2} &\quad 0 &\quad - jk_{1} \\ jk_{2} &\quad 0 &\quad - jk_{1} &\quad 0 \\ \end{bmatrix}\begin{bmatrix} jI_{c}e^{{j{\theta }}} \\ \quad - jI_{b2} \\ I_{b1} \\ - V_{L}/R_{L} \\ \end{bmatrix} \tag{3}\end{align*}
-$$
 
 $$
-\begin{align*} \begin{bmatrix} V_{c} \\ V_{b2} \\ V_{b1} \\ V_{L} \\ \end{bmatrix} = Z_{0}\begin{bmatrix} 0 &\quad - jk_{1} &\quad 0 &\quad jk_{2} \\ - jk_{1} &\quad 0 &\quad jk_{2} &\quad 0 \\ 0 &\quad jk_{2} &\quad 0 &\quad - jk_{1} \\ jk_{2} &\quad 0 &\quad - jk_{1} &\quad 0 \\ \end{bmatrix}\begin{bmatrix} jI_{c}e^{{j{\theta }}} \\ \quad - jI_{b2} \\ I_{b1} \\ - V_{L}/R_{L} \\ \end{bmatrix} \tag{3}\end{align*}
+\begin{align*} 
+\left[\begin{array}{c}
+V_c \\
+V_{b 2} \\
+V_{b 1} \\
+V_L
+\end{array}\right]=Z_0\left[\begin{array}{cccc}
+0 & -j k_1 & 0 & j k_2 \\
+-j k_1 & 0 & j k_2 & 0 \\
+0 & j k_2 & 0 & -j k_1 \\
+j k_2 & 0 & -j k_1 & 0
+\end{array}\right]\left[\begin{array}{c}
+j I_c e^{j \theta} \\
+-j I_{b 2} \\
+I_{b 1} \\
+-V_L / R_L
+\end{array}\right]
+\tag{3}
+\end{align*}
 $$
+
 
 其中 $ V_{c} $、$ V_{b2} $ 、$ V_{b1} $ 和 $ V_{L} $ 分别代表负载CA、PA2、PA1和ZL的参考电压。 电流 $ I_{1} $ 向耦合器的隔离端口注入幅度为 $ I_{C} $ 、相位可调的信号 $ \theta $ ，以控制负载调制过程。 PA1、PA2和CA的阻抗 $ Z_{b1} $、$ Z_{b2} $ 和 $ Z_{c} $ 可以计算为 :
 
 $$
-\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
+\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\end{align*}
 $$
 
 $$
-\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
+\begin{align*}Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\end{align*}
+$$
+
+$$
+\begin{align*}Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
 $$
 
 其中 $ k_{1} = 1/{(1−b^2)}^{1/2} $ 且 $ k_{2} = b /a $ 由 (1)–​(3) 定义。 非常有趣的是，即使电流 $ I_{b1} $ 等于 $ I_{b2}(I_{b1} = I_{b2})  $ ，CA阻抗也会被调制，而与耦合系数 $ C_{0}.(k_2 \ne 1) $ 的变化无关。 为了简化上述表达式，设置电流比 $ I_{b1max}＝ \gamma_1I_{cmax} $ 和 $ I_{b2max}＝ \gamma_2I_{cmax} $ 。

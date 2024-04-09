@@ -50,7 +50,15 @@ $$
 \begin{align*} \begin{bmatrix} V_{c} \\ V_{b2} \\ V_{b1} \\ V_{L} \\ \end{bmatrix} = Z_{0}\begin{bmatrix} 0 &\quad - jk_{1} &\quad 0 &\quad jk_{2} \\ - jk_{1} &\quad 0 &\quad jk_{2} &\quad 0 \\ 0 &\quad jk_{2} &\quad 0 &\quad - jk_{1} \\ jk_{2} &\quad 0 &\quad - jk_{1} &\quad 0 \\ \end{bmatrix}\begin{bmatrix} jI_{c}e^{{j{\theta }}} \\ \quad - jI_{b2} \\ I_{b1} \\ - V_{L}/R_{L} \\ \end{bmatrix} \tag{3}\end{align*}
 $$
 
+$$
+\begin{align*} \begin{bmatrix} V_{c} \\ V_{b2} \\ V_{b1} \\ V_{L} \\ \end{bmatrix} = Z_{0}\begin{bmatrix} 0 &\quad - jk_{1} &\quad 0 &\quad jk_{2} \\ - jk_{1} &\quad 0 &\quad jk_{2} &\quad 0 \\ 0 &\quad jk_{2} &\quad 0 &\quad - jk_{1} \\ jk_{2} &\quad 0 &\quad - jk_{1} &\quad 0 \\ \end{bmatrix}\begin{bmatrix} jI_{c}e^{{j{\theta }}} \\ \quad - jI_{b2} \\ I_{b1} \\ - V_{L}/R_{L} \\ \end{bmatrix} \tag{3}\end{align*}
+$$
+
 其中 $ V_{c} $、$ V_{b2} $ 、$ V_{b1} $ 和 $ V_{L} $ 分别代表负载CA、PA2、PA1和ZL的参考电压。 电流 $ I_{1} $ 向耦合器的隔离端口注入幅度为 $ I_{C} $ 、相位可调的信号 $ \theta $ ，以控制负载调制过程。 PA1、PA2和CA的阻抗 $ Z_{b1} $、$ Z_{b2} $ 和 $ Z_{c} $ 可以计算为 :
+
+$$
+\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
+$$
 
 $$
 \begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}

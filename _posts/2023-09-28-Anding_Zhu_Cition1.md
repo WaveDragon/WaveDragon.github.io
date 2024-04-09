@@ -44,7 +44,7 @@ $$
 \begin{align*} \left [{ S }\right]=&\begin{bmatrix} 0 &\quad - ja &\quad - b &\quad 0 \\ - ja &\quad 0 &\quad 0 &\quad - b \\ - b &\quad 0 &\quad 0 &\quad - ja \\ 0 &\quad - b &\quad - ja &\quad 0 \\ \end{bmatrix} \tag{1}\\ \left [{ Z }\right]=&\left ({\left [{ U }\right] + \left [{ S }\right] }\right)\left ({\left [{ U }\right] - \left [{ S }\right] }\right)^{- 1} \tag{2}\end{align*}
 $$
 
-其中a和b与定向耦合器的耦合系数 $ (C_{0}) $有关。$ [U] $ 是单位矩阵。 对于无损耦合器，需要保证 $ 0 < C_{0} < 1 $ ，同时满足 $ b=C_{0} $ 和 $ a = {(1 − C^{2}_{0})}^{1/2} $ 。 那么，输出耦合器的电流和电压之间的关系可以表示为
+其中a和b与定向耦合器的耦合系数 $ (C_{0}) $ 有关。$ [U] $ 是单位矩阵。 对于无损耦合器，需要保证 $ 0 < C_{0} < 1 $ ，同时满足 $ b=C_{0} $ 和 $ a = {(1 − C^{2}_{0})}^{1/2} $ 。 那么，输出耦合器的电流和电压之间的关系可以表示为
 
 $$
 \begin{align*} \begin{bmatrix} V_{c} \\ V_{b2} \\ V_{b1} \\ V_{L} \\ \end{bmatrix} = Z_{0}\begin{bmatrix} 0 &\quad - jk_{1} &\quad 0 &\quad jk_{2} \\ - jk_{1} &\quad 0 &\quad jk_{2} &\quad 0 \\ 0 &\quad jk_{2} &\quad 0 &\quad - jk_{1} \\ jk_{2} &\quad 0 &\quad - jk_{1} &\quad 0 \\ \end{bmatrix}\begin{bmatrix} jI_{c}e^{{j{\theta }}} \\ \quad - jI_{b2} \\ I_{b1} \\ - V_{L}/R_{L} \\ \end{bmatrix} \tag{3}\end{align*}
@@ -109,7 +109,7 @@ $$
 \begin{align*} Z_{c,{OBO}}=&\frac {C_{0}^{2}}{1 - C_{0}^{2}}Z_{0} \tag{17}\\ Z_{c,{Sat}}=&\frac {C_{0}^{4}\beta _{1}Z_{0}}{C_{0}^{2}(1 - C_{0}^{2})\beta _{1} + (1 - C_{0}^{2})^{3/2}\gamma _{2} - C_{0}(1 - C_{0}^{2})\gamma _{1})} \qquad \tag{18}\\ Z_{b1,{Sat}}=&Z_{0}\left ({{}\frac {C_{0}^{2}\beta _{1} + ((1 - C_{0}^{2})^{1/2} - C_{0}(1 - C_{0}^{2}))\gamma _{2}}{C_{0}(1 - C_{0}^{2})\gamma _{1}}}\right)\tag{19}\\ Z_{b2,{Sat}}=&Z_{0}\left ({{}\frac {1}{C_{0}(1 - C_{0}^{2})^{1/2}} + {}\frac {(1 - C_{0}^{2})^{- 1/2}\beta _{1} - \gamma _{1}}{\gamma _{2}}}\right) \tag{20}\end{align*}
 $$
 
-OBO 可以表示为 [10]：
+OBO 可以表示为 [^10]：
 
 $$
 \begin{align*} OBO=&10\log 10\left ({\frac {P_{c,{Sat}} + P_{b1,{Sat}} + P_{b2,{Sat}}}{P_{c,{OBO}}}}\right) \tag{21}\\ P_{c,{OBO}}=&\frac {1}{2}(\beta _{1}I_{c\max })^{2}Z_{c,{OBO}} \tag{22}\\ P_{c,{Sat}}=&\frac {1}{2}\left ({\frac {v_{c}}{Z_{c,{Sat}}}}\right)^{2}Z_{c,{Sat}} = \frac {1}{2}\left ({\frac {\beta _{1}I_{c\max }Z_{c,{OBO}}}{Z_{c,{Sat}}}}\right)^{2}Z_{c,{Sat}} \qquad \tag{23}\\ P_{b1,{Sat}}=&\frac {1}{2}(I_{b1}^{2}[{ 1}])Z_{b1,{Sat}},P_{b2,{Sat}} = \frac {1}{2}(I_{b2}^{2}[{ 1}])Z_{b2,{Sat}} \tag{24}\end{align*}

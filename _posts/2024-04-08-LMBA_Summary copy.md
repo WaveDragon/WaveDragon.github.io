@@ -1,0 +1,153 @@
+---
+title: (2016 MWCL) An efficient broadband reconfigurable power amplifier using active load modulation
+author: WaveDragon
+date: 2024-04-08 11:11:00 +0800
+categories: [Blogging, LMBA]
+tags: [PA]
+math: true
+mermaid: true
+password_protect: false
+# image:
+#   path: /commons/devices-mockup.png
+#   width: 800
+#   height: 500
+#   alt: Responsive rendering of Chirpy theme on multiple devices.
+---
+
+
+
+## 摘要
+
+提出了一种新颖的功率放大器 (PA) 架构，即负载调制平衡 PA (LMBA)。 **<font color = salmon>LMBA 能够通过改变外部控制信号的幅度和相位来调制正交平衡配置中一对射频功率晶体管的阻抗。 这使得功率和效率能够在特定的功率回退水平和频率下动态优化。</font>** 与 Doherty PA 不同的是，有源器件所承受的负载可以向上或向下调制（电阻式和电抗式），而功率组合效率的损失最小。 LMBA 被认为是一种潜在的颠覆性技术，可以在较宽的信号幅度和频率范围内动态控制任何特定的放大器特性。
+
+## 一、介绍
+
+修改射频功率放大器 (RFPA) 中器件平面阻抗环境的能力具有许多重要的应用。 这些绝不限于调制信号激励下的功率管理，例如在广泛实施的 Doherty RFPA (DPA) [^1]、[^2] 中，它使用有源负载调制技术来保持高效率，因为 RFPA 输出功率为 减少。 传统的 RFPA 具有固定调谐，使用无源电抗元件实现，因此提供给输出设备的负载通常代表性能与频率之间的折衷； 这尤其适用于宽带设计，例如 ECM 和电子战应用所需的设计。 [^3] 中对 Doherty 放大器性能的最新技术进行了全面回顾，非线性无源元件负载调制技术 [^4]、[^5] 也显示了增强的带宽电路操作。 据我们所知，这封信描述了一种在 RFPA 中实现负载调制的替代方法，该方法没有 Doherty PA 固有的带宽限制，也不需要电源转换器。 该方法与目前报道的效率增强方法的不同之处在于，**可以通过外部调整所施加的控制信号的幅度和相位来动态优化频率和功率性能**。 这封信提出了一般理论分析，表明了广泛的应用领域，特别是宽带（超过倍频程）RFPA 设计 [^2]。**<font color = salmon>控制信号能够调制平衡晶体管的阻抗，包括幅度和相位； 这意味着可以通过对外部控制信号进行动态调整来补充或取代传统无源匹配网络的功能。 理论上，控制信号功率显示为直接添加到输出功率，无论其相位设置如何； 实际上，这种功率节省可能是不完美的，但在大多数控制信号设置条件下基本上实现了。</font>**
+
+## 二、LMBA 理论
+
+基本负载调制平衡放大器 (LMBA) 是一种经典的正交平衡放大器，其控制信号馈入通常端接的输出端口，如图 1 所示。
+
+
+![image1](https://github.com/WaveDragon/test/assets/78013131/26ae3d7f-b010-41b9-b63a-50093e64f0d3)
+>图.1 LMBA 的示意图。
+
+使用理想 3 dB 混合耦合器的 4 端口 Z 矩阵最容易分析电路输出部分的动作，如图 2 所示。请注意，该公式假设端口电流 $ I_{n} $  流入结构， 端口电压 $ V_{n} $ 是相对于公共接地连接测量的。 在LMBA情况下，两个平衡装置被表示为电流吸收器，具有相等的幅度 $ I_{b} $ 和适当的正交相位偏移，使得 $ I_{2} = -I_{b} $，并且 $ I_{4} = -jI_{b} $ 。
+
+
+![image2](https://github.com/WaveDragon/test/assets/78013131/9905bb42-cde8-48f3-a7d1-bd985db801e7)
+
+
+控制设备输出也可以表示为端口 3 上的电流吸收器，其具有规定的相位偏移 $ \phi $ ，使得 $ I_{3}=I_{con}=−jI_{c}e^{j\phi} $ 。
+
+输出端口1被端接，因此 $ V_{1} = -Z_{0} I_{1} $ 。
+
+将上述代入一般阻抗矩阵，可以求解所得的 4 个方程，以获得两个平衡器件输出所见的驱动点阻抗表达式，指定为 $ Z_{A} $ 和 $ Z_{B} $ 
+
+$$
+\begin{align*}Z_{A} &= Z_{0}\left(1 - \sqrt{2}\frac{I_{c}e^{j\phi}}{I_{b}}\right)\tag{1a} \\ Z_{B} &= Z_{0}\left(1 - \sqrt{2}\frac{I_{c}e^{j\phi}}{I_{b}}\right).\tag{1b}\end{align*}
+$$
+
+等式（1）揭示了显着的结果； 他们表明，可以通过调整控制信号的幅度和相位来 **“调制”每个平衡设备输出的负载，并且每个平衡端口产生的阻抗具有相同的幅度和相位。** 此外，辅助放大器生成的功率被完全恢复为端口 1 中输出的一部分，因为每个平衡电流源 $ P_{bal} $ 生成的功率由下式给出
+
+$$
+\begin{align*}2P_\mathrm{bal} &=I_{b}^{2}Z_{0}\mathrm{Re}\left\{1 - \sqrt{2}\frac{I_{c}e^{j\phi}}{I_{b}}\right\} \\ &=Z_{0}\left(I_{b}^{2} - \sqrt{2}I_{b}I_{c}\cos\phi\right)\tag{2}\end{align*}
+$$
+
+由图 2 中的第一个矩阵方程可知，输出电流 $ I_{1}=\sqrt{2}I_{b}−I_{c}e^{j\phi} $ ，因此输送到输出负载 P1 的功率为:
+
+
+
+$$
+\begin{align*}P_{1} &=\frac{1}{2}Z_{0}\left|(\sqrt{2}I_{b} - I_{c}\cos\phi)-jI_{c}\sin\phi\right|^{2} \\ &=Z_{0}\left(I_{b}^{2} - \sqrt{2}I_{b}I_{c}\cos\phi + \frac{1}{2}I_{c}^{2}\right).\tag{3}\end{align*}
+$$
+
+进入端口 3 的控制信号功率由下式给出:
+
+$$
+\begin{equation*}P_{\mathrm{con}} = \frac{1}{2}I_{c}^{2}Z_{0}\tag{4}\end{equation*}
+$$
+
+由此可知 $ P_{1} = 2 P_{bal} + P_{con} $ 。
+
+从 (1) 中注意到，设备负载的幅度和相位都可以向上或向下调制。 这与 DPA 形成鲜明对比，DPA 需要**带宽限制阻抗逆变器来反转阻抗调制的方向**。
+
+负载调制的实际程度是控制信号功率（CSP）的函数，并且显然是**可重构放大器**设计中的重要考虑因素。 回想一下，平衡电流源的大小为 $ I_{b} $，控制电流是复数 $ I_{con} $ ，其中 $ I_{con} = I_{c}e^{j\phi} $ ，(1)、(2) 和 (4) 可以组合起来给出:
+
+$$
+\begin{equation*}\frac{P_{\mathrm{con}}}{P_\mathrm{bal}} = \frac{| Z_{b}/Z_{0} - 1|^{2}}{2.\mathrm{Re}\left[Z_{b}/Z_{0}\right]} = \alpha\tag{5}\end{equation*}
+$$
+
+其中 $ \alpha $ 是控制功率与单个平衡器件产生的功率之比，$ Z_{b} $ 表示器件平面阻抗 $ Z_{A} $ 或 $ Z_{b} $。 对应的反射系数可以写为：
+
+$$
+\begin{equation*}\rho_{b} = \frac{z_{b} - 1}{z_{b} + 1},\ \left(\left(z_{b} = Z_{b}/Z_{0}\right)\right.\end{equation*}
+$$
+
+当代入 (4) 时给出:
+
+$$
+\begin{equation*}\alpha = {\left|\frac{2\rho_{b}}{1 - \rho_{b}}\right|^{2}}\bigg/{\left\{2\mathrm{Re}\left(\frac{1 + \rho_{b}}{1 - \rho_{b}}\right)\right\}}\end{equation*}
+$$
+
+可以重新排列以给出:
+
+$$
+\begin{equation*}|\rho_{b}|^{2} = \frac{\alpha}{(2 + \alpha)}.\tag{6}\end{equation*}
+$$
+
+因此，相对控制信号功率 (CSP) 因子 $ \alpha $ 定义了一个以史密斯圆图原点为中心的圆形轮廓，它表示可以从“起始”(Z0) 值进行调制的阻抗范围，如图 3 所示。 例如，要将器件平面阻抗向下调制 2 倍（例如 50 欧姆到 25 欧姆），α 值为 1/4，因此所需的控制功率比单个平衡器件提供的控制功率低 6 dB ，或比平衡对的总输出低 9 dB。 在预削波状态下，负载的这种变化将导致主平衡 PA 的功率输出减少 3 dB； 这给出了非常适度的 CSP 级别的有用调整范围的定性指示。
+
+![image3](https://github.com/WaveDragon/test/assets/78013131/de5a4e43-4f86-4489-9002-c2f88a71c52b)
+
+## 三、实验结果
+
+本节介绍 LMBA 演示器的一些初步结果，如图 4 所示。演示器使用一对商用插入式 3 dB 耦合器构建，工作带宽为 0.8–2.4 GHz（创新 IPP-2004，1 至 4.2） 兆赫）。 平衡器件是一对封装的 GaN 晶体管 (Cree CGH40010)。 还包括板载输出偏置网络，这些网络由约 30 nH 的小型手绕电感器和 0402 隔直电容器组成。
+
+![image4](https://github.com/WaveDragon/test/assets/78013131/fd0b348a-9baa-4466-9db9-b722b0b83310)
+
+
+图5显示了2W控制信号功率下通过360°相位旋转（20°步长）的整体系统效率和功率输出变化； 为了图形简单起见，功率水平保持恒定。 这些测量结果清楚地表明了如何在宽频带内保持最佳性能的改进性能。 输入和控制源之间的相对相位设置表示最大效率条件。 图 6 显示了 800 至 2000 MHz 的功率和效率。 数据系列按非调制输出功率电平 34 dBm、37 dBm 和 Psat 分类。 绘制了最大效率条件下的调制功率以及所达到的效率水平。 作为参考，图中还包含了未施加控制电源时的效率。 应该注意的是，这些测量是在 18 V 电源电压下进行的，而不是指定的最大 28 V 电源。 这样做是为了在长时间的测量运行中获得更好的热稳定性，但会导致单个设备的功率输出 (38.5 dBm) 低于该设备的 10 W 规格。 因此，从图 5 可以清楚地看出，在较高的输出功率水平下，2W 功率控制信号已基本恢复。 还可以看出，在输出电平非常低时，CPA 功率开始超过 PA 功率，BPA 器件会吸收功率； 这是由于负载调制移至史密斯圆图之外，从 (1) 可以清楚地看出。 在实际的 LMBA 使用中，可以通过在回退条件下使用降低的 CPA 功率来避免此类操作。
+
+![image5](https://github.com/WaveDragon/test/assets/78013131/741903cd-9d2c-474c-95c5-c16ef46ea3e5)
+
+>图 5. 在 18 Vds、1.5 GHz 下测量的结果，显示了使用 2 W 控制信号功率从 40.8、37、34 和 30 dBm 未调制功率输出工作点（线路）到 360° 相位旋转的调制效果（环路）。 环路上方的相位数表示最大效率时的相位偏移。 观点。
+
+在计算 LMBA 效率时，适当考虑控制信号功率。 在图中。 在图 5 和 6 中，我们为生成控制信号功率所需的直流功率纳入了 70% 的效率因数； 请注意，与可比较的 PAE 计算相比，这构成了不太乐观的观点。 这些测量结果说明了 LMBA 的几种可能的应用。 显然，控制信号的幅度和相位可用于优化任何频率和任何驱动功率水平下的功率和/或效率。 因此，LMBA 可以被视为一类新的可重构 RFPA，它执行电源管理的 Doherty 功能，但引入了单个频率性能优化的重要新功能，从而在宽带宽上实现最佳性能。
+
+![image6](https://github.com/WaveDragon/test/assets/78013131/4a603a13-8969-4ef1-a235-82c8d7d2bef7)
+
+## 四、结论
+
+描述、分析和演示了一种新颖的可重构放大器概念。 LMBA 似乎在设计新一代可重构放大器方面具有广泛的潜力，该放大器可在宽带宽上高效、最佳地运行。 演示器 LMBA 已经实现，在倍频程范围内显示出 70% 的效率以及良好的功率回退性能。
+
+
+[<font color = salmon font size = 36>论文地址</font>](https://ieeexplore.ieee.org/document/7469815) 
+
+## 参考文献
+[^1] W. Doherty, “A new high efficiency power amplifier for modulated waves,” Proc. IRE, vol. 24, no. 9, pp. 1163–1182, Sep. 1935. 
+[^2] S. C. Cripps, RF Power Amplifiers for Wireless Communications, 2nd ed. Norwood, MA, USA: Artech House, 2006. 
+[^3] V. Camarchia et al., “The doherty power amplifier: Review and recent solutions and trends,” IEEE Trans. Microw. Theory Tech., vol. 63, no. 2, pp. 559–571, 2015. 
+[^4] K. Chen and D. Peroulis, “Design of adaptive highly efficient GaN power amplifier for octave-bandwidth application and dynamic load modulation,” IEEE Microw. Theory Tech., vol. 60, no. 6, pp. 1829–1839, 2012. 
+[^5] W. Hallberg et al., “A class-J power amplifier with varactor-based dynamic load modulation across a large bandwidth,” in Proc. IEEE IMS, 2015, pp. 1–4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

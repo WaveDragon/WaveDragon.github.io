@@ -53,7 +53,7 @@ $$
 其中 $ V_{c} $、$ V_{b2} $ 、$ V_{b1} $ 和 $ V_{L} $ 分别代表负载CA、PA2、PA1和ZL的参考电压。 电流 $ I_{1} $ 向耦合器的隔离端口注入幅度为 $ I_{C} $ 、相位可调的信号 $ \theta $ ，以控制负载调制过程。 PA1、PA2和CA的阻抗 $ Z_{b1} $、$ Z_{b2} $ 和 $ Z_{c} $ 可以计算为 :
 
 $$
-\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({{}\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
+\begin{align*} Z_{b1}=&Z_{0}\left ({k_{1}^{2} - {}\frac {k_{2}I_{b2}}{I_{b1}} + {}\frac {k_{1}k_{2}I_{c}e^{{j{\theta }}}}{I_{b1}}}\right) \tag{4}\\ Z_{b2}=&Z_{0}\left ({\frac {k_{2}I_{b1}}{I_{b2}} + {}\frac {k_{1}I_{c}e^{{j{\theta }}}}{I_{b2}}}\right) \tag{5}\\ Z_{c}=&Z_{0}\left ({k_{2}^{2} - \frac {k_{1}(I_{b2} - k_{2}I_{b1})}{I_{c}e^{{j{\theta }}}}}\right) \tag{6}\end{align*}
 $$
 
 其中 $ k_{1} = 1/{(1−b^2)}^{1/2} $ 且 $ k_{2} = b /a $ 由 (1)–​(3) 定义。 非常有趣的是，即使电流 $ I_{b1} $ 等于 $ I_{b2}(I_{b1} = I_{b2})  $ ，CA阻抗也会被调制，而与耦合系数 $ C_{0}.(k_2 \ne 1) $ 的变化无关。 为了简化上述表达式，设置电流比 $ I_{b1max}＝ \gamma_1I_{cmax} $ 和 $ I_{b2max}＝ \gamma_2I_{cmax} $ 。
@@ -93,7 +93,7 @@ $$
 2. 情况2：当 $ \beta _{1} \le \beta \le \beta _{2} $  时，所提出的LMBA在Doherty区域运行。 在这种情况下，CA 和 PA2 开启，PA1 关闭。 同时，负载阻抗 $ Z_{c} $ 条件并没有保持在 $ Z_{0} $ ，并且这也正在经历动态负载调制。 随着 $ \beta $ 继续增加到 $ \beta _{2} $ 以上，CA电流Ic增加到最大 $ I_{cmax} $ ，并且PA2电流 $ I_{b2} $ 可由式(13)定义。 因此，三个放大器的负载阻抗可以表示为
 
 $$
-\begin{equation*} Z_{c} = {}\frac {k_{2}^{2}v_{c}Z_{0}}{v_{c} + k_{1}I_{b2}Z_{0}}, Z_{b1} = \infty, Z_{b2} = Z_{0}\left ({{}\frac {k_{1}^{2}}{k_{2}} + {}\frac {k_{1}v_{c}}{k_{2}^{2}I_{b2}}}\right)\tag{15}\end{equation*}
+\begin{equation*} Z_{c} = {}\frac {k_{2}^{2}v_{c}Z_{0}}{v_{c} + k_{1}I_{b2}Z_{0}}, Z_{b1} = \infty, Z_{b2} = Z_{0}\left ({\frac {k_{1}^{2}}{k_{2}} + {}\frac {k_{1}v_{c}}{k_{2}^{2}I_{b2}}}\right)\tag{15}\end{equation*}
 $$
 
 3. Case3：当 $ \beta _{2} \le \beta \le 1 $ 时，所提议的LMBA在ALMBA区域中运行。 在这种情况下，CA、PA1 和 PA2 开启。 当 $ \beta = 1 $ 时， $ I_{b1} $ 和 $ I_{b2} $ 增加最大电流 $ I_{b1max} $ 和 $ I_{b2max} $ 。 PA1和PA2功率达到饱和状态。 在此区域，CA、PA1和PA2的负载阻抗可以表示为
@@ -106,7 +106,7 @@ $$
 此时，注意到PA2电流 $ I_{b2} $ 急剧增大，可由式(11)求得。 因此，OBO 和饱和水平处的阻抗可以使用 (4)–(6) 重写
 
 $$
-\begin{align*} Z_{c,{OBO}}=&\frac {C_{0}^{2}}{1 - C_{0}^{2}}Z_{0} \tag{17}\\ Z_{c,{Sat}}=&\frac {C_{0}^{4}\beta _{1}Z_{0}}{C_{0}^{2}(1 - C_{0}^{2})\beta _{1} + (1 - C_{0}^{2})^{3/2}\gamma _{2} - C_{0}(1 - C_{0}^{2})\gamma _{1})} \qquad \tag{18}\\ Z_{b1,{Sat}}=&Z_{0}\left ({{}\frac {C_{0}^{2}\beta _{1} + ((1 - C_{0}^{2})^{1/2} - C_{0}(1 - C_{0}^{2}))\gamma _{2}}{C_{0}(1 - C_{0}^{2})\gamma _{1}}}\right)\tag{19}\\ Z_{b2,{Sat}}=&Z_{0}\left ({{}\frac {1}{C_{0}(1 - C_{0}^{2})^{1/2}} + {}\frac {(1 - C_{0}^{2})^{- 1/2}\beta _{1} - \gamma _{1}}{\gamma _{2}}}\right) \tag{20}\end{align*}
+\begin{align*} Z_{c,{OBO}}=&\frac {C_{0}^{2}}{1 - C_{0}^{2}}Z_{0} \tag{17}\\ Z_{c,{Sat}}=&\frac {C_{0}^{4}\beta _{1}Z_{0}}{C_{0}^{2}(1 - C_{0}^{2})\beta _{1} + (1 - C_{0}^{2})^{3/2}\gamma _{2} - C_{0}(1 - C_{0}^{2})\gamma _{1})} \qquad \tag{18}\\ Z_{b1,{Sat}}=&Z_{0}\left ({\frac {C_{0}^{2}\beta _{1} + ((1 - C_{0}^{2})^{1/2} - C_{0}(1 - C_{0}^{2}))\gamma _{2}}{C_{0}(1 - C_{0}^{2})\gamma _{1}}}\right)\tag{19}\\ Z_{b2,{Sat}}=&Z_{0}\left ({\frac {1}{C_{0}(1 - C_{0}^{2})^{1/2}} + {}\frac {(1 - C_{0}^{2})^{- 1/2}\beta _{1} - \gamma _{1}}{\gamma _{2}}}\right) \tag{20}\end{align*}
 $$
 
 OBO 可以表示为 [^10]：

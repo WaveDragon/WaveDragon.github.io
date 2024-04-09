@@ -1,9 +1,9 @@
 ---
 title: A GaN MMIC Load-Modulated Balanced Amplifier With Modified Output Coupler for Efficiency Enhancement Over a Larger Power Back-Off Range
 author: WaveDragon
-date: 2023-11-14 11:11:00 +0800
-categories: [Blogging, RadioFrequency]
-tags: [Study]
+date: 2024-04-09 11:11:00 +0800
+categories: [Blogging, LMBA]
+tags: [PA]
 math: true
 mermaid: true
 password_protect: false
@@ -129,7 +129,8 @@ $$
 
 ### B. 理论验证
 
-为了说明所提出的具有改进输出耦合器的 LMBA，以设置 Icmax=0.6、β1 = 0.5、β2 = 0.75 和 OBO = 10-dB 为例。 在此简述中，假设PA1的输出功率低于PA2的输出功率(0≤n≤1)，则0.707到1ofC0的范围可以通过(25)计算出来。 例如，当确定n=0.73时，可以获得C0=0.76。 代入C0后，用(21)~(24)式即可确定γ1和γ2的值。 为了获得10 dB的OBO电平，可以保证γ1 = 1.6和γ2 = 2.3，如图2（b）所示。 图 3 显示了所提出的 LMBA 的运行行为。 从
+为了说明所提出的具有改进输出耦合器的 LMBA，以设置 Icmax=0.6、β1 = 0.5、β2 = 0.75 和 OBO = 10-dB 为例。 在此简述中，假设PA1的输出功率低于PA2的输出功率(0≤n≤1)，则0.707到1ofC0的范围可以通过(25)计算出来。 例如，当确定n=0.73时，可以获得C0=0.76。 代入C0后，用(21)~(24)式即可确定γ1和γ2的值。 为了获得10 dB的OBO电平，可以保证γ1 = 1.6和γ2 = 2.3，如图2（b）所示。 图 3 显示了所提出的 LMBA 的运行行为。 从头
+
 
 ## 参考文献
 
